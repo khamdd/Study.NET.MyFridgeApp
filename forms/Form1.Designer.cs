@@ -31,12 +31,16 @@
             HeaderPanel = new Panel();
             AppNameLabel = new Label();
             panel1 = new Panel();
+            ExitBtn = new Button();
+            DashboardBtn = new Button();
+            InventoryBtn = new Button();
+            CategoryBtn = new Button();
             MenuLabel = new Label();
             AddItemBtn = new Button();
-            CategoryBtn = new Button();
-            InventoryBtn = new Button();
-            DashboardBtn = new Button();
-            ExitBtn = new Button();
+            TotalItemsPanel = new Panel();
+            GoToInventoryBtn = new Button();
+            AboutExpiredPanel = new Panel();
+            AboutExpiredInventoryBtn = new Button();
             HeaderPanel.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -77,6 +81,71 @@
             panel1.Size = new Size(200, 561);
             panel1.TabIndex = 1;
             // 
+            // ExitBtn
+            // 
+            ExitBtn.BackColor = Color.FromArgb(64, 64, 64);
+            ExitBtn.Cursor = Cursors.Hand;
+            ExitBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            ExitBtn.FlatAppearance.BorderSize = 0;
+            ExitBtn.FlatStyle = FlatStyle.Flat;
+            ExitBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ExitBtn.ForeColor = SystemColors.Menu;
+            ExitBtn.Location = new Point(12, 407);
+            ExitBtn.Name = "ExitBtn";
+            ExitBtn.Size = new Size(164, 36);
+            ExitBtn.TabIndex = 5;
+            ExitBtn.Text = "Exit";
+            ExitBtn.UseVisualStyleBackColor = false;
+            // 
+            // DashboardBtn
+            // 
+            DashboardBtn.BackColor = Color.FromArgb(64, 64, 64);
+            DashboardBtn.Cursor = Cursors.Hand;
+            DashboardBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            DashboardBtn.FlatAppearance.BorderSize = 0;
+            DashboardBtn.FlatStyle = FlatStyle.Flat;
+            DashboardBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DashboardBtn.ForeColor = SystemColors.Menu;
+            DashboardBtn.Location = new Point(12, 160);
+            DashboardBtn.Name = "DashboardBtn";
+            DashboardBtn.Size = new Size(164, 36);
+            DashboardBtn.TabIndex = 4;
+            DashboardBtn.Text = "Dashboard";
+            DashboardBtn.UseVisualStyleBackColor = false;
+            // 
+            // InventoryBtn
+            // 
+            InventoryBtn.BackColor = Color.FromArgb(64, 64, 64);
+            InventoryBtn.Cursor = Cursors.Hand;
+            InventoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            InventoryBtn.FlatAppearance.BorderSize = 0;
+            InventoryBtn.FlatStyle = FlatStyle.Flat;
+            InventoryBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            InventoryBtn.ForeColor = SystemColors.Menu;
+            InventoryBtn.Location = new Point(12, 224);
+            InventoryBtn.Name = "InventoryBtn";
+            InventoryBtn.Size = new Size(164, 36);
+            InventoryBtn.TabIndex = 3;
+            InventoryBtn.Text = "Inventory";
+            InventoryBtn.UseVisualStyleBackColor = false;
+            // 
+            // CategoryBtn
+            // 
+            CategoryBtn.BackColor = Color.FromArgb(64, 64, 64);
+            CategoryBtn.Cursor = Cursors.Hand;
+            CategoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            CategoryBtn.FlatAppearance.BorderSize = 0;
+            CategoryBtn.FlatStyle = FlatStyle.Flat;
+            CategoryBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CategoryBtn.ForeColor = SystemColors.Menu;
+            CategoryBtn.Location = new Point(12, 283);
+            CategoryBtn.Name = "CategoryBtn";
+            CategoryBtn.Size = new Size(164, 36);
+            CategoryBtn.TabIndex = 2;
+            CategoryBtn.Text = "Categories";
+            CategoryBtn.UseVisualStyleBackColor = false;
+            CategoryBtn.Click += CategoryBtn_Click;
+            // 
             // MenuLabel
             // 
             MenuLabel.AutoSize = true;
@@ -98,7 +167,7 @@
             AddItemBtn.FlatStyle = FlatStyle.Flat;
             AddItemBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AddItemBtn.ForeColor = SystemColors.Menu;
-            AddItemBtn.Location = new Point(12, 274);
+            AddItemBtn.Location = new Point(12, 344);
             AddItemBtn.Name = "AddItemBtn";
             AddItemBtn.Size = new Size(164, 36);
             AddItemBtn.TabIndex = 0;
@@ -106,69 +175,54 @@
             AddItemBtn.UseVisualStyleBackColor = false;
             AddItemBtn.Click += AddItemBtn_Click;
             // 
-            // CategoryBtn
+            // TotalItemsPanel
             // 
-            CategoryBtn.BackColor = Color.FromArgb(64, 64, 64);
-            CategoryBtn.Cursor = Cursors.Hand;
-            CategoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            CategoryBtn.FlatAppearance.BorderSize = 0;
-            CategoryBtn.FlatStyle = FlatStyle.Flat;
-            CategoryBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CategoryBtn.ForeColor = SystemColors.Menu;
-            CategoryBtn.Location = new Point(12, 340);
-            CategoryBtn.Name = "CategoryBtn";
-            CategoryBtn.Size = new Size(164, 36);
-            CategoryBtn.TabIndex = 2;
-            CategoryBtn.Text = "Categories";
-            CategoryBtn.UseVisualStyleBackColor = false;
+            TotalItemsPanel.Location = new Point(311, 134);
+            TotalItemsPanel.Name = "TotalItemsPanel";
+            TotalItemsPanel.Size = new Size(200, 200);
+            TotalItemsPanel.TabIndex = 2;
+            TotalItemsPanel.Paint += TotalItemsPanel_Paint;
             // 
-            // InventoryBtn
+            // GoToInventoryBtn
             // 
-            InventoryBtn.BackColor = Color.FromArgb(64, 64, 64);
-            InventoryBtn.Cursor = Cursors.Hand;
-            InventoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            InventoryBtn.FlatAppearance.BorderSize = 0;
-            InventoryBtn.FlatStyle = FlatStyle.Flat;
-            InventoryBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            InventoryBtn.ForeColor = SystemColors.Menu;
-            InventoryBtn.Location = new Point(12, 215);
-            InventoryBtn.Name = "InventoryBtn";
-            InventoryBtn.Size = new Size(164, 36);
-            InventoryBtn.TabIndex = 3;
-            InventoryBtn.Text = "Inventory";
-            InventoryBtn.UseVisualStyleBackColor = false;
+            GoToInventoryBtn.BackColor = Color.FromArgb(64, 64, 64);
+            GoToInventoryBtn.Cursor = Cursors.Hand;
+            GoToInventoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            GoToInventoryBtn.FlatAppearance.BorderSize = 0;
+            GoToInventoryBtn.FlatStyle = FlatStyle.Flat;
+            GoToInventoryBtn.Font = new Font("Tahoma", 10F);
+            GoToInventoryBtn.ForeColor = SystemColors.Menu;
+            GoToInventoryBtn.Location = new Point(353, 346);
+            GoToInventoryBtn.Name = "GoToInventoryBtn";
+            GoToInventoryBtn.Size = new Size(122, 36);
+            GoToInventoryBtn.TabIndex = 4;
+            GoToInventoryBtn.Text = "Check Inventory";
+            GoToInventoryBtn.UseVisualStyleBackColor = false;
             // 
-            // DashboardBtn
+            // AboutExpiredPanel
             // 
-            DashboardBtn.BackColor = Color.FromArgb(64, 64, 64);
-            DashboardBtn.Cursor = Cursors.Hand;
-            DashboardBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            DashboardBtn.FlatAppearance.BorderSize = 0;
-            DashboardBtn.FlatStyle = FlatStyle.Flat;
-            DashboardBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            DashboardBtn.ForeColor = SystemColors.Menu;
-            DashboardBtn.Location = new Point(12, 160);
-            DashboardBtn.Name = "DashboardBtn";
-            DashboardBtn.Size = new Size(164, 36);
-            DashboardBtn.TabIndex = 4;
-            DashboardBtn.Text = "Dashboard";
-            DashboardBtn.UseVisualStyleBackColor = false;
+            AboutExpiredPanel.Location = new Point(666, 134);
+            AboutExpiredPanel.Name = "AboutExpiredPanel";
+            AboutExpiredPanel.Size = new Size(200, 200);
+            AboutExpiredPanel.TabIndex = 3;
+            AboutExpiredPanel.Paint += AboutExpiredPanel_Paint;
             // 
-            // ExitBtn
+            // AboutExpiredInventoryBtn
             // 
-            ExitBtn.BackColor = Color.FromArgb(64, 64, 64);
-            ExitBtn.Cursor = Cursors.Hand;
-            ExitBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            ExitBtn.FlatAppearance.BorderSize = 0;
-            ExitBtn.FlatStyle = FlatStyle.Flat;
-            ExitBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ExitBtn.ForeColor = SystemColors.Menu;
-            ExitBtn.Location = new Point(12, 407);
-            ExitBtn.Name = "ExitBtn";
-            ExitBtn.Size = new Size(164, 36);
-            ExitBtn.TabIndex = 5;
-            ExitBtn.Text = "Exit";
-            ExitBtn.UseVisualStyleBackColor = false;
+            AboutExpiredInventoryBtn.BackColor = Color.FromArgb(64, 64, 64);
+            AboutExpiredInventoryBtn.Cursor = Cursors.Hand;
+            AboutExpiredInventoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            AboutExpiredInventoryBtn.FlatAppearance.BorderSize = 0;
+            AboutExpiredInventoryBtn.FlatStyle = FlatStyle.Flat;
+            AboutExpiredInventoryBtn.Font = new Font("Tahoma", 10F);
+            AboutExpiredInventoryBtn.ForeColor = SystemColors.Menu;
+            AboutExpiredInventoryBtn.Location = new Point(734, 346);
+            AboutExpiredInventoryBtn.Name = "AboutExpiredInventoryBtn";
+            AboutExpiredInventoryBtn.Size = new Size(71, 36);
+            AboutExpiredInventoryBtn.TabIndex = 4;
+            AboutExpiredInventoryBtn.Text = "Check";
+            AboutExpiredInventoryBtn.UseVisualStyleBackColor = false;
+            AboutExpiredInventoryBtn.Click += button1_Click;
             // 
             // MainForm
             // 
@@ -176,6 +230,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(984, 561);
+            Controls.Add(AboutExpiredInventoryBtn);
+            Controls.Add(GoToInventoryBtn);
+            Controls.Add(AboutExpiredPanel);
+            Controls.Add(TotalItemsPanel);
             Controls.Add(HeaderPanel);
             Controls.Add(panel1);
             Name = "MainForm";
@@ -199,5 +257,9 @@
         private Button InventoryBtn;
         private Button ExitBtn;
         private Button DashboardBtn;
+        private Panel TotalItemsPanel;
+        private Panel AboutExpiredPanel;
+        private Button AboutExpiredInventoryBtn;
+        private Button GoToInventoryBtn;
     }
 }
