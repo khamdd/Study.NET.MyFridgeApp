@@ -30,19 +30,16 @@
         {
             HeaderPanel = new Panel();
             AppNameLabel = new Label();
-            panel1 = new Panel();
+            sidebarPanel = new Panel();
             ExitBtn = new Button();
             DashboardBtn = new Button();
             InventoryBtn = new Button();
             CategoryBtn = new Button();
             MenuLabel = new Label();
             AddItemBtn = new Button();
-            TotalItemsPanel = new Panel();
-            GoToInventoryBtn = new Button();
-            AboutExpiredPanel = new Panel();
-            AboutExpiredInventoryBtn = new Button();
+            MainPanel = new Panel();
             HeaderPanel.SuspendLayout();
-            panel1.SuspendLayout();
+            sidebarPanel.SuspendLayout();
             SuspendLayout();
             // 
             // HeaderPanel
@@ -66,20 +63,20 @@
             AppNameLabel.TabIndex = 0;
             AppNameLabel.Text = "My Fridge App";
             // 
-            // panel1
+            // sidebarPanel
             // 
-            panel1.BackColor = Color.FromArgb(64, 64, 64);
-            panel1.Controls.Add(ExitBtn);
-            panel1.Controls.Add(DashboardBtn);
-            panel1.Controls.Add(InventoryBtn);
-            panel1.Controls.Add(CategoryBtn);
-            panel1.Controls.Add(MenuLabel);
-            panel1.Controls.Add(AddItemBtn);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(200, 561);
-            panel1.TabIndex = 1;
+            sidebarPanel.BackColor = Color.FromArgb(64, 64, 64);
+            sidebarPanel.Controls.Add(ExitBtn);
+            sidebarPanel.Controls.Add(DashboardBtn);
+            sidebarPanel.Controls.Add(InventoryBtn);
+            sidebarPanel.Controls.Add(CategoryBtn);
+            sidebarPanel.Controls.Add(MenuLabel);
+            sidebarPanel.Controls.Add(AddItemBtn);
+            sidebarPanel.Dock = DockStyle.Left;
+            sidebarPanel.Location = new Point(0, 0);
+            sidebarPanel.Name = "sidebarPanel";
+            sidebarPanel.Size = new Size(200, 561);
+            sidebarPanel.TabIndex = 1;
             // 
             // ExitBtn
             // 
@@ -112,6 +109,7 @@
             DashboardBtn.TabIndex = 4;
             DashboardBtn.Text = "Dashboard";
             DashboardBtn.UseVisualStyleBackColor = false;
+            DashboardBtn.Click += DashboardBtn_Click;
             // 
             // InventoryBtn
             // 
@@ -122,12 +120,13 @@
             InventoryBtn.FlatStyle = FlatStyle.Flat;
             InventoryBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             InventoryBtn.ForeColor = SystemColors.Menu;
-            InventoryBtn.Location = new Point(12, 224);
+            InventoryBtn.Location = new Point(12, 217);
             InventoryBtn.Name = "InventoryBtn";
             InventoryBtn.Size = new Size(164, 36);
             InventoryBtn.TabIndex = 3;
             InventoryBtn.Text = "Inventory";
             InventoryBtn.UseVisualStyleBackColor = false;
+            InventoryBtn.Click += InventoryBtn_Click;
             // 
             // CategoryBtn
             // 
@@ -144,7 +143,6 @@
             CategoryBtn.TabIndex = 2;
             CategoryBtn.Text = "Categories";
             CategoryBtn.UseVisualStyleBackColor = false;
-            CategoryBtn.Click += CategoryBtn_Click;
             // 
             // MenuLabel
             // 
@@ -173,56 +171,14 @@
             AddItemBtn.TabIndex = 0;
             AddItemBtn.Text = "Add New Item";
             AddItemBtn.UseVisualStyleBackColor = false;
-            AddItemBtn.Click += AddItemBtn_Click;
             // 
-            // TotalItemsPanel
+            // MainPanel
             // 
-            TotalItemsPanel.Location = new Point(311, 134);
-            TotalItemsPanel.Name = "TotalItemsPanel";
-            TotalItemsPanel.Size = new Size(200, 200);
-            TotalItemsPanel.TabIndex = 2;
-            TotalItemsPanel.Paint += TotalItemsPanel_Paint;
-            // 
-            // GoToInventoryBtn
-            // 
-            GoToInventoryBtn.BackColor = Color.FromArgb(64, 64, 64);
-            GoToInventoryBtn.Cursor = Cursors.Hand;
-            GoToInventoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            GoToInventoryBtn.FlatAppearance.BorderSize = 0;
-            GoToInventoryBtn.FlatStyle = FlatStyle.Flat;
-            GoToInventoryBtn.Font = new Font("Tahoma", 10F);
-            GoToInventoryBtn.ForeColor = SystemColors.Menu;
-            GoToInventoryBtn.Location = new Point(353, 346);
-            GoToInventoryBtn.Name = "GoToInventoryBtn";
-            GoToInventoryBtn.Size = new Size(122, 36);
-            GoToInventoryBtn.TabIndex = 4;
-            GoToInventoryBtn.Text = "Check Inventory";
-            GoToInventoryBtn.UseVisualStyleBackColor = false;
-            // 
-            // AboutExpiredPanel
-            // 
-            AboutExpiredPanel.Location = new Point(666, 134);
-            AboutExpiredPanel.Name = "AboutExpiredPanel";
-            AboutExpiredPanel.Size = new Size(200, 200);
-            AboutExpiredPanel.TabIndex = 3;
-            AboutExpiredPanel.Paint += AboutExpiredPanel_Paint;
-            // 
-            // AboutExpiredInventoryBtn
-            // 
-            AboutExpiredInventoryBtn.BackColor = Color.FromArgb(64, 64, 64);
-            AboutExpiredInventoryBtn.Cursor = Cursors.Hand;
-            AboutExpiredInventoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            AboutExpiredInventoryBtn.FlatAppearance.BorderSize = 0;
-            AboutExpiredInventoryBtn.FlatStyle = FlatStyle.Flat;
-            AboutExpiredInventoryBtn.Font = new Font("Tahoma", 10F);
-            AboutExpiredInventoryBtn.ForeColor = SystemColors.Menu;
-            AboutExpiredInventoryBtn.Location = new Point(734, 346);
-            AboutExpiredInventoryBtn.Name = "AboutExpiredInventoryBtn";
-            AboutExpiredInventoryBtn.Size = new Size(71, 36);
-            AboutExpiredInventoryBtn.TabIndex = 4;
-            AboutExpiredInventoryBtn.Text = "Check";
-            AboutExpiredInventoryBtn.UseVisualStyleBackColor = false;
-            AboutExpiredInventoryBtn.Click += button1_Click;
+            MainPanel.Dock = DockStyle.Fill;
+            MainPanel.Location = new Point(200, 60);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new Size(784, 501);
+            MainPanel.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -230,26 +186,23 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(984, 561);
-            Controls.Add(AboutExpiredInventoryBtn);
-            Controls.Add(GoToInventoryBtn);
-            Controls.Add(AboutExpiredPanel);
-            Controls.Add(TotalItemsPanel);
+            Controls.Add(MainPanel);
             Controls.Add(HeaderPanel);
-            Controls.Add(panel1);
+            Controls.Add(sidebarPanel);
             Name = "MainForm";
             Text = "Form1";
             Load += Form1_Load;
             HeaderPanel.ResumeLayout(false);
             HeaderPanel.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            sidebarPanel.ResumeLayout(false);
+            sidebarPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel HeaderPanel;
-        private Panel panel1;
+        private Panel sidebarPanel;
         private Label AppNameLabel;
         private Button AddItemBtn;
         private Label MenuLabel;
@@ -257,9 +210,6 @@
         private Button InventoryBtn;
         private Button ExitBtn;
         private Button DashboardBtn;
-        private Panel TotalItemsPanel;
-        private Panel AboutExpiredPanel;
-        private Button AboutExpiredInventoryBtn;
-        private Button GoToInventoryBtn;
+        private Panel MainPanel;
     }
 }

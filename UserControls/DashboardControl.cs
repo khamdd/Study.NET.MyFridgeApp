@@ -1,30 +1,29 @@
-using MyFridgeApp.Models;
+﻿using MyFridgeApp.Models;
 using MyFridgeApp.Services;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace MyFridgeApp
+namespace MyFridgeApp.UserControls
 {
-    public partial class MainForm : Form
+    public partial class DashboardControl : UserControl
     {
         private List<Item> items = [];
         private int totalItems;
-        public MainForm()
+        public DashboardControl()
         {
             items = ItemService.GetAllItems();
             totalItems = items.Count;
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddItemBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CategoryBtn_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -69,11 +68,6 @@ namespace MyFridgeApp
                 float y = (TotalItemsPanel.Height - textSize.Height) / 2;
                 e.Graphics.DrawString(text, font, brush, x, y);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
