@@ -15,7 +15,8 @@ namespace MyFridgeApp.Models
         public Cart Cart { get; set; } = null!;
 
         // null if it's a brand-new purchase not in your fridge yet
-        public int? ItemId { get; set; }   
+        public int? ItemId { get; set; }
+        public Item? Item { get; set; }
         public string Name { get; set; } = string.Empty;
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;
