@@ -6,24 +6,22 @@ using System.Threading.Tasks;
 
 namespace MyFridgeApp.Models
 {
-    internal enum ItemStatus
+    internal class CartItem
     {
-        Active = 0,
-        Deleted = 1
-    }
-
-    internal class Item
-    {
+        // Link to existing inventory item IF it came from Inventory
         public int Id { get; set; }
+        // FK -> Cart
+        public int CartId { get; set; }
+        public Cart Cart { get; set; } = null!;
+
+        // null if it's a brand-new purchase not in your fridge yet
+        public int? ItemId { get; set; }
+        public Item? Item { get; set; }
         public string Name { get; set; } = string.Empty;
         public int CategoryId { get; set; }
-        // FK => Category
         public Category Category { get; set; } = null!;
-        public DateTime ImportDate { get; set; }
-        public DateTime ExpiryDate { get; set; }
         public int Quantity { get; set; }
         public string Unit { get; set; } = string.Empty;
         public string Notes { get; set; } = string.Empty;
-        public ItemStatus Status { get; set; } = ItemStatus.Active;
     }
 }

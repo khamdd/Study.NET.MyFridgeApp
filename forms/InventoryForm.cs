@@ -15,15 +15,16 @@ namespace MyFridgeApp.forms
     public partial class InventoryForm : Form
     {
         private List<Item> inventoryItems = [];
+        private readonly ItemService itemService;
         public InventoryForm()
         {
             InitializeComponent();
+            itemService = new();
         }
 
-        private void InventoryForm_Load(object sender, EventArgs e)
+        private async void InventoryForm_Load(object sender, EventArgs e)
         {
-            ItemService itemService = new();
-            inventoryItems = itemService.GetAllItems();
+            inventoryItems = await itemService.GetAllAsync();
             inventorydgv.DataSource = inventoryItems;
         }
 

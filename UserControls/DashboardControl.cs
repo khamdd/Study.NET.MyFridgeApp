@@ -16,12 +16,11 @@ namespace MyFridgeApp.UserControls
     {
         private List<Item> items = [];
         private int totalItems;
+        private readonly ItemService itemService;
         public DashboardControl()
         {
-            ItemService itemService = new();
-            items = itemService.GetAllItems();
-            totalItems = items.Count;
             InitializeComponent();
+            itemService = new();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -69,6 +68,12 @@ namespace MyFridgeApp.UserControls
                 float y = (TotalItemsPanel.Height - textSize.Height) / 2;
                 e.Graphics.DrawString(text, font, brush, x, y);
             }
+        }
+
+        private async void DashboardControl_Load_1(object sender, EventArgs e)
+        {
+            var items = await itemService.GetAllAsync(false);
+            totalItems = items.Count;
         }
     }
 }

@@ -16,19 +16,21 @@ namespace MyFridgeApp.UserControls
     {
         private List<Item> inventoryItems = [];
         private List<Category> categories = [];
+        private readonly ItemService itemService;
+        private readonly CategoryService categoryService;
         public InventoryControl()
         {
+            itemService = new();
+            categoryService = new();
             InitializeComponent();
         }
-        private void InventoryControl_Load(object sender, EventArgs e)
+        private async void InventoryControl_Load(object sender, EventArgs e)
         {
             // Load Inventory
-            ItemService itemService = new();
-            inventoryItems = itemService.GetAllItems();
+            inventoryItems = await itemService.GetAllAsync();
 
             // Load Categories
-            CategoryService categoryService = new();
-            categories = categoryService.GetAllCategories();
+            categories = await categoryService.GetAllAsync();
             var categoryDict = categories.ToDictionary(c => c.Id, c => c.Name);
 
             // Join items with category names for display

@@ -92,6 +92,7 @@
             Controls.Add(TotalItemsPanel);
             Name = "DashboardControl";
             Size = new Size(784, 501);
+            Load += DashboardControl_Load_1;
             ResumeLayout(false);
         }
 

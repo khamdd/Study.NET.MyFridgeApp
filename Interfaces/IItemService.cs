@@ -9,10 +9,12 @@ namespace MyFridgeApp.Interfaces
 {
     internal interface IItemService
     {
-        List<Item> GetAllItems();
-        Item? GetItemById(int id);
-        void AddItem(Item item);
-        void UpdateItem(Item item);
-        void DeleteItem(int id);
+        Task<List<Item>> GetAllAsync(bool includeDeleted = false);
+        Task<Item?> GetByIdAsync(int id);
+        Task<List<Item>> GetExpiringSoonAsync(int days);
+        Task<Item> CreateAsync(Item item);
+        Task<bool> UpdateAsync(Item item);
+        Task<bool> SoftDeleteAsync(int id);
+        Task<int?> GetCategoryIdByNameAsync(string name);
     }
 }

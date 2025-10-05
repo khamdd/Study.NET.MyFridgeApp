@@ -9,6 +9,8 @@ namespace MyFridgeApp.Interfaces
 {
     internal interface ICategoryService
     {
-        List<Category> GetAllCategories();
+        Task<List<Category>> GetAllAsync();
+        Task<Category?> GetByIdAsync(int id);
+        Task<int?> GetIdByNameAsync(string name);
     }
 }
