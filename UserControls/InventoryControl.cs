@@ -23,10 +23,12 @@ namespace MyFridgeApp.UserControls
         private void InventoryControl_Load(object sender, EventArgs e)
         {
             // Load Inventory
-            inventoryItems = ItemService.GetAllItems();
+            ItemService itemService = new();
+            inventoryItems = itemService.GetAllItems();
 
             // Load Categories
-            categories = CategoryService.GetAllCategories();
+            CategoryService categoryService = new();
+            categories = categoryService.GetAllCategories();
             var categoryDict = categories.ToDictionary(c => c.Id, c => c.Name);
 
             // Join items with category names for display

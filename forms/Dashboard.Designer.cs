@@ -34,10 +34,11 @@
             ExitBtn = new Button();
             DashboardBtn = new Button();
             InventoryBtn = new Button();
-            CategoryBtn = new Button();
             MenuLabel = new Label();
             AddItemBtn = new Button();
             MainPanel = new Panel();
+            shoppingBtn = new Button();
+            logBtn = new Button();
             HeaderPanel.SuspendLayout();
             sidebarPanel.SuspendLayout();
             SuspendLayout();
@@ -66,10 +67,11 @@
             // sidebarPanel
             // 
             sidebarPanel.BackColor = Color.FromArgb(64, 64, 64);
+            sidebarPanel.Controls.Add(logBtn);
+            sidebarPanel.Controls.Add(shoppingBtn);
             sidebarPanel.Controls.Add(ExitBtn);
             sidebarPanel.Controls.Add(DashboardBtn);
             sidebarPanel.Controls.Add(InventoryBtn);
-            sidebarPanel.Controls.Add(CategoryBtn);
             sidebarPanel.Controls.Add(MenuLabel);
             sidebarPanel.Controls.Add(AddItemBtn);
             sidebarPanel.Dock = DockStyle.Left;
@@ -87,7 +89,7 @@
             ExitBtn.FlatStyle = FlatStyle.Flat;
             ExitBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ExitBtn.ForeColor = SystemColors.Menu;
-            ExitBtn.Location = new Point(12, 407);
+            ExitBtn.Location = new Point(12, 453);
             ExitBtn.Name = "ExitBtn";
             ExitBtn.Size = new Size(164, 36);
             ExitBtn.TabIndex = 5;
@@ -128,22 +130,6 @@
             InventoryBtn.UseVisualStyleBackColor = false;
             InventoryBtn.Click += InventoryBtn_Click;
             // 
-            // CategoryBtn
-            // 
-            CategoryBtn.BackColor = Color.FromArgb(64, 64, 64);
-            CategoryBtn.Cursor = Cursors.Hand;
-            CategoryBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            CategoryBtn.FlatAppearance.BorderSize = 0;
-            CategoryBtn.FlatStyle = FlatStyle.Flat;
-            CategoryBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CategoryBtn.ForeColor = SystemColors.Menu;
-            CategoryBtn.Location = new Point(12, 283);
-            CategoryBtn.Name = "CategoryBtn";
-            CategoryBtn.Size = new Size(164, 36);
-            CategoryBtn.TabIndex = 2;
-            CategoryBtn.Text = "Categories";
-            CategoryBtn.UseVisualStyleBackColor = false;
-            // 
             // MenuLabel
             // 
             MenuLabel.AutoSize = true;
@@ -165,12 +151,13 @@
             AddItemBtn.FlatStyle = FlatStyle.Flat;
             AddItemBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AddItemBtn.ForeColor = SystemColors.Menu;
-            AddItemBtn.Location = new Point(12, 344);
+            AddItemBtn.Location = new Point(12, 276);
             AddItemBtn.Name = "AddItemBtn";
             AddItemBtn.Size = new Size(164, 36);
             AddItemBtn.TabIndex = 0;
             AddItemBtn.Text = "Add New Item";
             AddItemBtn.UseVisualStyleBackColor = false;
+            AddItemBtn.Click += AddItemBtn_Click;
             // 
             // MainPanel
             // 
@@ -179,6 +166,38 @@
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(784, 501);
             MainPanel.TabIndex = 5;
+            // 
+            // shoppingBtn
+            // 
+            shoppingBtn.BackColor = Color.FromArgb(64, 64, 64);
+            shoppingBtn.Cursor = Cursors.Hand;
+            shoppingBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            shoppingBtn.FlatAppearance.BorderSize = 0;
+            shoppingBtn.FlatStyle = FlatStyle.Flat;
+            shoppingBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            shoppingBtn.ForeColor = SystemColors.Menu;
+            shoppingBtn.Location = new Point(12, 334);
+            shoppingBtn.Name = "shoppingBtn";
+            shoppingBtn.Size = new Size(164, 36);
+            shoppingBtn.TabIndex = 6;
+            shoppingBtn.Text = "Shopping";
+            shoppingBtn.UseVisualStyleBackColor = false;
+            // 
+            // logBtn
+            // 
+            logBtn.BackColor = Color.FromArgb(64, 64, 64);
+            logBtn.Cursor = Cursors.Hand;
+            logBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            logBtn.FlatAppearance.BorderSize = 0;
+            logBtn.FlatStyle = FlatStyle.Flat;
+            logBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logBtn.ForeColor = SystemColors.Menu;
+            logBtn.Location = new Point(12, 399);
+            logBtn.Name = "logBtn";
+            logBtn.Size = new Size(164, 36);
+            logBtn.TabIndex = 7;
+            logBtn.Text = "Log";
+            logBtn.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -206,10 +225,11 @@
         private Label AppNameLabel;
         private Button AddItemBtn;
         private Label MenuLabel;
-        private Button CategoryBtn;
         private Button InventoryBtn;
         private Button ExitBtn;
         private Button DashboardBtn;
         private Panel MainPanel;
+        private Button logBtn;
+        private Button shoppingBtn;
     }
 }

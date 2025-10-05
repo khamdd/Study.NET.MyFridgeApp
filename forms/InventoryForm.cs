@@ -22,7 +22,8 @@ namespace MyFridgeApp.forms
 
         private void InventoryForm_Load(object sender, EventArgs e)
         {
-            inventoryItems = ItemService.GetAllItems();
+            ItemService itemService = new();
+            inventoryItems = itemService.GetAllItems();
             inventorydgv.DataSource = inventoryItems;
         }
 

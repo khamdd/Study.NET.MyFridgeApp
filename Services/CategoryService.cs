@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MyFridgeApp.Utils;
+using MyFridgeApp.Interfaces;
 
 namespace MyFridgeApp.Services
 {
-    internal class CategoryService
+    internal class CategoryService : ICategoryService
     {
         public CategoryService() { }
-        public static List<Category> GetAllCategories()
+        public List<Category> GetAllCategories()
         {
             return FileManager<Category>.ReadFile(Constants.categoryFilePath);
         }

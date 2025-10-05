@@ -7,7 +7,6 @@ namespace MyFridgeApp
 {
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
@@ -34,6 +33,11 @@ namespace MyFridgeApp
         private void DashboardBtn_Click(object sender, EventArgs e)
         {
             LoadScreen(new DashboardControl());
+        }
+
+        private void AddItemBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

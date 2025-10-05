@@ -18,7 +18,8 @@ namespace MyFridgeApp.UserControls
         private int totalItems;
         public DashboardControl()
         {
-            items = ItemService.GetAllItems();
+            ItemService itemService = new();
+            items = itemService.GetAllItems();
             totalItems = items.Count;
             InitializeComponent();
         }
