@@ -10,6 +10,15 @@ namespace MyFridgeApp.Interfaces
     internal interface IItemService
     {
         Task<List<Item>> GetAllAsync(bool includeDeleted = false);
+        Task<List<Item>> SearchAsync(
+            string? name = null,
+            int? categoryId = null,
+            DateTime? importFrom = null,
+            DateTime? importTo = null,
+            DateTime? expireFrom = null,
+            DateTime? expireTo = null,
+            bool includeDeleted = false
+            );
         Task<Item?> GetByIdAsync(int id);
         Task<List<Item>> GetExpiringSoonAsync(int days);
         Task<Item> CreateAsync(Item item);

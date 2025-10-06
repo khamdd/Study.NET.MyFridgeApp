@@ -1,4 +1,6 @@
-﻿using MyFridgeApp.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using MyFridgeApp.Data;
+using MyFridgeApp.Models;
 using MyFridgeApp.Services;
 using System;
 using System.Collections.Generic;
@@ -20,29 +22,49 @@ namespace MyFridgeApp.UserControls
         private readonly CategoryService categoryService;
         public InventoryControl()
         {
+            InitializeComponent();
             itemService = new();
             categoryService = new();
-            InitializeComponent();
         }
         private async void InventoryControl_Load(object sender, EventArgs e)
         {
             // Load Inventory
-            inventoryItems = await itemService.GetAllAsync();
+            //inventoryItems = await itemService.GetAllAsync();
 
-            // Load Categories
-            categories = await categoryService.GetAllAsync();
-            var categoryDict = categories.ToDictionary(c => c.Id, c => c.Name);
+            //// Load Categories
+            //categories = await categoryService.GetAllAsync();
+            //var categoryDict = categories.ToDictionary(c => c.Id, c => c.Name);
 
-            // Join items with category names for display
+            //// Join items with category names for display
+            //var itemsWithCategoryName = inventoryItems.Select(item => new
+            //{
+            //    item.Id,
+            //    item.Name,
+            //    Category = categoryDict.TryGetValue(item.CategoryId, out string? value) ? value : "Unknown",
+            //    item.Quantity,
+            //    item.Unit,
+            //    item.ImportDate,
+            //    item.ExpiryDate,
+            //    item.Notes
+            //}).ToList();
+            using var context = new Context();
+            inventoryItems = await context.Items
+                .Include(i => i.Category)       // eager load Category
+                .AsNoTracking()                 // read-only, prevents disposed context issues
+                .OrderBy(i => i.ExpiryDate)
+                .ThenBy(i => i.Name)
+                .ToListAsync();
+
+            // Map items to display object
             var itemsWithCategoryName = inventoryItems.Select(item => new
             {
                 item.Id,
                 item.Name,
-                Category = categoryDict.TryGetValue(item.CategoryId, out string? value) ? value : "Unknown",
+                Category = item.Category?.Name ?? "Unknown", // directly from navigation property
                 item.Quantity,
                 item.Unit,
-                item.ImportDate,
-                item.ExpiryDate,
+                ImportDate = item.ImportDate.ToString("yyyy-MM-dd"),
+                ExpiryDate = item.ExpiryDate.ToString("yyyy-MM-dd"),
                 item.Notes
             }).ToList();
 
@@ -63,34 +85,35 @@ namespace MyFridgeApp.UserControls
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            string keyword = searchTextbox.Text.ToLower();
-            string field = cmbSearchBy.SelectedItem.ToString();
-            var categoryDict = categories.ToDictionary(c => c.Id, c => c.Name);
+            string keyword = searchTextbox.Text.Trim().ToLower();
+            string field = cmbSearchBy.SelectedItem?.ToString() ?? "Name";
 
+            // Filter items based on selected field
             var filtered = inventoryItems.Where(item =>
             {
                 return field switch
                 {
-                    "Name" => item.Name.ToLower().Contains(keyword),
-                    "Category" => categoryDict.TryGetValue(item.CategoryId, out string? catName)
-                          && catName.ToLower().Contains(keyword),
-                    "Notes" => item.Notes.ToLower().Contains(keyword),
+                    "Name" => item.Name?.ToLower().Contains(keyword) ?? false,
+                    "Category" => item.Category?.Name?.ToLower().Contains(keyword) ?? false,
+                    "Notes" => item.Notes?.ToLower().Contains(keyword) ?? false,
                     _ => false
                 };
             }).ToList();
 
+            // Map to display object
             var itemsWithCategoryName = filtered.Select(item => new
             {
                 item.Id,
                 item.Name,
-                Category = categoryDict.TryGetValue(item.CategoryId, out string? value) ? value : "Unknown",
+                Category = item.Category?.Name ?? "Unknown",
                 item.Quantity,
                 item.Unit,
-                item.ImportDate,
-                item.ExpiryDate,
+                ImportDate = item.ImportDate.ToString("yyyy-MM-dd"),
+                ExpiryDate = item.ExpiryDate.ToString("yyyy-MM-dd"),
                 item.Notes
             }).ToList();
 
+            // Refresh DataGridView
             inventorydgv.DataSource = null;
             inventorydgv.DataSource = itemsWithCategoryName;
         }

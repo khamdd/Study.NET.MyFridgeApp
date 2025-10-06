@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyFridgeApp.Data;
 
@@ -11,9 +12,11 @@ using MyFridgeApp.Data;
 namespace MyFridgeApp.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20251006025840_AddInitData")]
+    partial class AddInitData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -213,8 +216,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            ExpiryDate = new DateTime(2025, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 11, 13, 58, 37, 778, DateTimeKind.Local).AddTicks(9845),
+                            ImportDate = new DateTime(2025, 10, 4, 13, 58, 37, 777, DateTimeKind.Local).AddTicks(5136),
                             Name = "Beef Steak",
                             Notes = "Grass-fed beef",
                             Quantity = 2,
@@ -225,8 +228,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            ExpiryDate = new DateTime(2025, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 10, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(456),
+                            ImportDate = new DateTime(2025, 10, 5, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(452),
                             Name = "Pork Chops",
                             Notes = "",
                             Quantity = 6,
@@ -237,8 +240,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 3,
                             CategoryId = 2,
-                            ExpiryDate = new DateTime(2025, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 9, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(460),
+                            ImportDate = new DateTime(2025, 10, 3, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(459),
                             Name = "Salmon Fillet",
                             Notes = "Fresh Atlantic salmon",
                             Quantity = 1,
@@ -249,8 +252,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            ExpiryDate = new DateTime(2025, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 8, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(464),
+                            ImportDate = new DateTime(2025, 10, 5, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(463),
                             Name = "Prawns",
                             Notes = "Frozen prawns",
                             Quantity = 500,
@@ -261,8 +264,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 5,
                             CategoryId = 3,
-                            ExpiryDate = new DateTime(2025, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 16, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(509),
+                            ImportDate = new DateTime(2025, 10, 1, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(508),
                             Name = "Apples",
                             Notes = "",
                             Quantity = 6,
@@ -273,8 +276,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 6,
                             CategoryId = 3,
-                            ExpiryDate = new DateTime(2025, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 9, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(513),
+                            ImportDate = new DateTime(2025, 10, 4, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(512),
                             Name = "Bananas",
                             Notes = "Ripe",
                             Quantity = 4,
@@ -285,8 +288,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 7,
                             CategoryId = 3,
-                            ExpiryDate = new DateTime(2025, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 13, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(516),
+                            ImportDate = new DateTime(2025, 10, 5, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(515),
                             Name = "Grapes",
                             Notes = "Seedless",
                             Quantity = 1,
@@ -297,8 +300,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 8,
                             CategoryId = 4,
-                            ExpiryDate = new DateTime(2025, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 18, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(519),
+                            ImportDate = new DateTime(2025, 10, 3, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(518),
                             Name = "Carrots",
                             Notes = "",
                             Quantity = 1,
@@ -309,8 +312,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 9,
                             CategoryId = 4,
-                            ExpiryDate = new DateTime(2025, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 11, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(536),
+                            ImportDate = new DateTime(2025, 10, 4, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(535),
                             Name = "Broccoli",
                             Notes = "Organic",
                             Quantity = 2,
@@ -321,8 +324,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 10,
                             CategoryId = 5,
-                            ExpiryDate = new DateTime(2025, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 12, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(539),
+                            ImportDate = new DateTime(2025, 10, 5, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(538),
                             Name = "Milk",
                             Notes = "Low-fat",
                             Quantity = 2,
@@ -333,8 +336,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 11,
                             CategoryId = 5,
-                            ExpiryDate = new DateTime(2025, 10, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 26, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(542),
+                            ImportDate = new DateTime(2025, 10, 2, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(541),
                             Name = "Cheddar Cheese",
                             Notes = "Block",
                             Quantity = 200,
@@ -345,8 +348,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 12,
                             CategoryId = 6,
-                            ExpiryDate = new DateTime(2025, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 18, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(546),
+                            ImportDate = new DateTime(2025, 9, 30, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(545),
                             Name = "Chicken Eggs",
                             Notes = "Free-range",
                             Quantity = 12,
@@ -357,8 +360,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 13,
                             CategoryId = 6,
-                            ExpiryDate = new DateTime(2025, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 16, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(549),
+                            ImportDate = new DateTime(2025, 10, 4, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(547),
                             Name = "Duck Eggs",
                             Notes = "",
                             Quantity = 6,
@@ -369,8 +372,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 14,
                             CategoryId = 7,
-                            ExpiryDate = new DateTime(2025, 10, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 13, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(552),
+                            ImportDate = new DateTime(2025, 10, 5, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(551),
                             Name = "Orange Juice",
                             Notes = "Freshly squeezed",
                             Quantity = 1,
@@ -381,8 +384,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 15,
                             CategoryId = 7,
-                            ExpiryDate = new DateTime(2026, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2026, 4, 6, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(555),
+                            ImportDate = new DateTime(2025, 10, 1, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(554),
                             Name = "Coca-Cola",
                             Notes = "",
                             Quantity = 6,
@@ -393,8 +396,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 16,
                             CategoryId = 8,
-                            ExpiryDate = new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2026, 10, 6, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(576),
+                            ImportDate = new DateTime(2025, 9, 6, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(575),
                             Name = "Tomato Ketchup",
                             Notes = "Big size",
                             Quantity = 1,
@@ -405,8 +408,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 17,
                             CategoryId = 8,
-                            ExpiryDate = new DateTime(2026, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2027, 4, 6, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(580),
+                            ImportDate = new DateTime(2025, 8, 7, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(579),
                             Name = "Soy Sauce",
                             Notes = "Japanese style",
                             Quantity = 1,
@@ -417,8 +420,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 18,
                             CategoryId = 9,
-                            ExpiryDate = new DateTime(2025, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 9, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(583),
+                            ImportDate = new DateTime(2025, 10, 5, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(582),
                             Name = "Whole Wheat Bread",
                             Notes = "",
                             Quantity = 1,
@@ -429,8 +432,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 19,
                             CategoryId = 9,
-                            ExpiryDate = new DateTime(2025, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 10, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 8, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(586),
+                            ImportDate = new DateTime(2025, 10, 6, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(585),
                             Name = "Chocolate Cake",
                             Notes = "Birthday cake",
                             Quantity = 1,
@@ -441,8 +444,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 20,
                             CategoryId = 10,
-                            ExpiryDate = new DateTime(2025, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2025, 10, 26, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(589),
+                            ImportDate = new DateTime(2025, 9, 26, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(588),
                             Name = "Butter",
                             Notes = "Salted",
                             Quantity = 250,
@@ -453,8 +456,8 @@ namespace MyFridgeApp.Migrations
                         {
                             Id = 21,
                             CategoryId = 10,
-                            ExpiryDate = new DateTime(2026, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ImportDate = new DateTime(2025, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExpiryDate = new DateTime(2026, 4, 6, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(592),
+                            ImportDate = new DateTime(2025, 9, 21, 13, 58, 37, 779, DateTimeKind.Local).AddTicks(591),
                             Name = "Pickles",
                             Notes = "Homemade",
                             Quantity = 1,

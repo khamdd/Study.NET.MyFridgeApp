@@ -15,13 +15,9 @@ namespace MyFridgeApp.Services
     /// </summary>
     internal class ItemService : IItemService
     {
-        private readonly Context context;
-
         public ItemService()
         {
-            context = new Context();
         }
-
         // ---------- Query ----------
 
         /// <summary>
@@ -29,16 +25,19 @@ namespace MyFridgeApp.Services
         /// </summary>
         public async Task<List<Item>> GetAllAsync(bool includeDeleted = false)
         {
+            using var context = new Context();
+            context.Database.EnsureCreated();
             var q = context.Items
-                      .Include(i => i.Category)
-                      .AsNoTracking();
+                        .Include(i => i.Category)
+                        .AsNoTracking();
 
             if (!includeDeleted)
                 q = q.Where(i => i.Status == ItemStatus.Active);
 
             return await q.OrderBy(i => i.ExpiryDate)
-                          .ThenBy(i => i.Name)
-                          .ToListAsync();
+                            .ThenBy(i => i.Name)
+                            .ToListAsync();
+            
         }
 
         /// <summary>
@@ -46,6 +45,7 @@ namespace MyFridgeApp.Services
         /// </summary>
         public async Task<Item?> GetByIdAsync(int id)
         {
+            using var context = new Context();
             return await context.Items
                            .Include(i => i.Category)
                            .FirstOrDefaultAsync(i => i.Id == id);
@@ -54,44 +54,45 @@ namespace MyFridgeApp.Services
         /// <summary>
         /// Search by name (contains), optional category, optional date range, and includeDeleted.
         /// </summary>
-        //public static async Task<List<Item>> SearchAsync(
-        //    string? name = null,
-        //    int? categoryId = null,
-        //    DateTime? importFrom = null,
-        //    DateTime? importTo = null,
-        //    DateTime? expireFrom = null,
-        //    DateTime? expireTo = null,
-        //    bool includeDeleted = false)
-        //{
-        //    using var db = new Context();
-        //    var q = db.Items.Include(i => i.Category).AsQueryable();
+        public async Task<List<Item>> SearchAsync(
+            string? name = null,
+            int? categoryId = null,
+            DateTime? importFrom = null,
+            DateTime? importTo = null,
+            DateTime? expireFrom = null,
+            DateTime? expireTo = null,
+            bool includeDeleted = false
+            )
+        {
+            using var context = new Context();
+            var q = context.Items.Include(i => i.Category).AsQueryable();
 
-        //    if (!includeDeleted)
-        //        q = q.Where(i => i.Status == ItemStatus.Active);
+            if (!includeDeleted)
+                q = q.Where(i => i.Status == ItemStatus.Active);
 
-        //    if (!string.IsNullOrWhiteSpace(name))
-        //        q = q.Where(i => i.Name.Contains(name));
+            if (!string.IsNullOrWhiteSpace(name))
+                q = q.Where(i => i.Name.Contains(name));
 
-        //    if (categoryId.HasValue)
-        //        q = q.Where(i => i.CategoryId == categoryId.Value);
+            if (categoryId.HasValue)
+                q = q.Where(i => i.CategoryId == categoryId.Value);
 
-        //    if (importFrom.HasValue)
-        //        q = q.Where(i => i.ImportDate >= importFrom.Value);
+            if (importFrom.HasValue)
+                q = q.Where(i => i.ImportDate >= importFrom.Value);
 
-        //    if (importTo.HasValue)
-        //        q = q.Where(i => i.ImportDate <= importTo.Value);
+            if (importTo.HasValue)
+                q = q.Where(i => i.ImportDate <= importTo.Value);
 
-        //    if (expireFrom.HasValue)
-        //        q = q.Where(i => i.ExpiryDate >= expireFrom.Value);
+            if (expireFrom.HasValue)
+                q = q.Where(i => i.ExpiryDate >= expireFrom.Value);
 
-        //    if (expireTo.HasValue)
-        //        q = q.Where(i => i.ExpiryDate <= expireTo.Value);
+            if (expireTo.HasValue)
+                q = q.Where(i => i.ExpiryDate <= expireTo.Value);
 
-        //    return await q.AsNoTracking()
-        //                  .OrderBy(i => i.ExpiryDate)
-        //                  .ThenBy(i => i.Name)
-        //                  .ToListAsync();
-        //}
+            return await q.AsNoTracking()
+                          .OrderBy(i => i.ExpiryDate)
+                          .ThenBy(i => i.Name)
+                          .ToListAsync();
+        }
 
         /// <summary>
         /// Items that will expire within the next N days (Active only).
@@ -100,7 +101,7 @@ namespace MyFridgeApp.Services
         {
             var today = DateTime.Today;
             var until = today.AddDays(days);
-
+            using var context = new Context();
             return await context.Items
                            .Include(i => i.Category)
                            .Where(i => i.Status == ItemStatus.Active &&
@@ -118,6 +119,7 @@ namespace MyFridgeApp.Services
         /// </summary>
         public async Task<Item> CreateAsync(Item item)
         {
+            using var context = new Context();
             if (item.ImportDate == default)
                 item.ImportDate = DateTime.Today;
 
@@ -131,6 +133,7 @@ namespace MyFridgeApp.Services
         /// </summary>
         public async Task<bool> UpdateAsync(Item item)
         {
+            using var context = new Context();
             var exists = await context.Items.AnyAsync(i => i.Id == item.Id);
             if (!exists) return false;
 
@@ -160,6 +163,7 @@ namespace MyFridgeApp.Services
         /// </summary>
         public async Task<bool> SoftDeleteAsync(int id)
         {
+            using var context = new Context();
             var entity = await context.Items.FirstOrDefaultAsync(i => i.Id == id);
             if (entity == null) return false;
 
@@ -210,6 +214,7 @@ namespace MyFridgeApp.Services
         /// </summary>
         public async Task<int?> GetCategoryIdByNameAsync(string name)
         {
+            using var context = new Context();
             if (string.IsNullOrWhiteSpace(name)) return null;
             var cat = await context.Categories
                               .AsNoTracking()

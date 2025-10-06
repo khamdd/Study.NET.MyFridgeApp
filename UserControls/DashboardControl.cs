@@ -1,4 +1,5 @@
-﻿using MyFridgeApp.Models;
+﻿using MyFridgeApp.Data;
+using MyFridgeApp.Models;
 using MyFridgeApp.Services;
 using System;
 using System.Collections.Generic;
@@ -72,7 +73,7 @@ namespace MyFridgeApp.UserControls
 
         private async void DashboardControl_Load_1(object sender, EventArgs e)
         {
-            var items = await itemService.GetAllAsync(false);
+            var items = await itemService.GetAllAsync();
             totalItems = items.Count;
         }
     }
