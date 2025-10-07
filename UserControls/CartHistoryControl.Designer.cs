@@ -30,33 +30,32 @@
         {
             tlpMain = new TableLayoutPanel();
             pageHost = new Panel();
-            pageHistory = new Panel();
-            dgvCarts = new DataGridView();
-            lblHistoryTitle = new Label();
-            colCartId = new DataGridViewTextBoxColumn();
-            colTotalItems = new DataGridViewTextBoxColumn();
-            colCreatedAt = new DataGridViewTextBoxColumn();
-            colCartStatus = new DataGridViewTextBoxColumn();
-            flpHistoryButtons = new FlowLayoutPanel();
-            btnClearHistory = new Button();
             pageDetail = new Panel();
-            lblDetailTitle = new Label();
+            tlpDetailButtons = new TableLayoutPanel();
+            btnBackToHistory = new Button();
+            btnDeleteCart = new Button();
             dgvItems = new DataGridView();
             colName = new DataGridViewTextBoxColumn();
             colCategory = new DataGridViewTextBoxColumn();
             colQty = new DataGridViewTextBoxColumn();
             colUnit = new DataGridViewTextBoxColumn();
             colNote = new DataGridViewTextBoxColumn();
-            tlpDetailButtons = new TableLayoutPanel();
-            btnBackToHistory = new Button();
-            btnDeleteCart = new Button();
+            lblDetailTitle = new Label();
+            pageHistory = new Panel();
+            btnClearHistory = new Button();
+            flpHistoryButtons = new FlowLayoutPanel();
+            dgvCarts = new DataGridView();
+            lblHistoryTitle = new Label();
+            colCartId = new DataGridViewTextBoxColumn();
+            colTotalItems = new DataGridViewTextBoxColumn();
+            colPlacedAt = new DataGridViewTextBoxColumn();
             tlpMain.SuspendLayout();
             pageHost.SuspendLayout();
+            pageDetail.SuspendLayout();
+            tlpDetailButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
             pageHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarts).BeginInit();
-            pageDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
-            tlpDetailButtons.SuspendLayout();
             SuspendLayout();
             // 
             // tlpMain
@@ -76,107 +75,13 @@
             // 
             // pageHost
             // 
-            pageHost.Controls.Add(pageDetail);
             pageHost.Controls.Add(pageHistory);
+            pageHost.Controls.Add(pageDetail);
             pageHost.Dock = DockStyle.Fill;
             pageHost.Location = new Point(3, 3);
             pageHost.Name = "pageHost";
             pageHost.Size = new Size(1368, 980);
             pageHost.TabIndex = 0;
-            // 
-            // pageHistory
-            // 
-            pageHistory.Controls.Add(btnClearHistory);
-            pageHistory.Controls.Add(flpHistoryButtons);
-            pageHistory.Controls.Add(dgvCarts);
-            pageHistory.Controls.Add(lblHistoryTitle);
-            pageHistory.Dock = DockStyle.Fill;
-            pageHistory.Location = new Point(0, 0);
-            pageHistory.Name = "pageHistory";
-            pageHistory.Size = new Size(1368, 980);
-            pageHistory.TabIndex = 0;
-            // 
-            // dgvCarts
-            // 
-            dgvCarts.AllowUserToAddRows = false;
-            dgvCarts.AllowUserToDeleteRows = false;
-            dgvCarts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCarts.Columns.AddRange(new DataGridViewColumn[] { colCartId, colTotalItems, colCreatedAt, colCartStatus });
-            dgvCarts.Location = new Point(0, 123);
-            dgvCarts.MultiSelect = false;
-            dgvCarts.Name = "dgvCarts";
-            dgvCarts.RowHeadersVisible = false;
-            dgvCarts.RowHeadersWidth = 72;
-            dgvCarts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCarts.Size = new Size(1368, 645);
-            dgvCarts.TabIndex = 1;
-            // 
-            // lblHistoryTitle
-            // 
-            lblHistoryTitle.Dock = DockStyle.Top;
-            lblHistoryTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHistoryTitle.Location = new Point(0, 0);
-            lblHistoryTitle.Name = "lblHistoryTitle";
-            lblHistoryTitle.Padding = new Padding(0, 20, 0, 20);
-            lblHistoryTitle.Size = new Size(1368, 123);
-            lblHistoryTitle.TabIndex = 0;
-            lblHistoryTitle.Text = "Cart History";
-            lblHistoryTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // colCartId
-            // 
-            colCartId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCartId.FillWeight = 25F;
-            colCartId.HeaderText = "Cart ID";
-            colCartId.MinimumWidth = 9;
-            colCartId.Name = "colCartId";
-            // 
-            // colTotalItems
-            // 
-            colTotalItems.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colTotalItems.FillWeight = 25F;
-            colTotalItems.HeaderText = "Total Items";
-            colTotalItems.MinimumWidth = 9;
-            colTotalItems.Name = "colTotalItems";
-            // 
-            // colCreatedAt
-            // 
-            colCreatedAt.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCreatedAt.FillWeight = 25F;
-            colCreatedAt.HeaderText = "Created At";
-            colCreatedAt.MinimumWidth = 9;
-            colCreatedAt.Name = "colCreatedAt";
-            // 
-            // colCartStatus
-            // 
-            colCartStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCartStatus.FillWeight = 25F;
-            colCartStatus.HeaderText = "Cart Status";
-            colCartStatus.MinimumWidth = 9;
-            colCartStatus.Name = "colCartStatus";
-            // 
-            // flpHistoryButtons
-            // 
-            flpHistoryButtons.AutoSize = true;
-            flpHistoryButtons.Dock = DockStyle.Bottom;
-            flpHistoryButtons.Location = new Point(0, 970);
-            flpHistoryButtons.Name = "flpHistoryButtons";
-            flpHistoryButtons.Padding = new Padding(0, 10, 0, 0);
-            flpHistoryButtons.Size = new Size(1368, 10);
-            flpHistoryButtons.TabIndex = 2;
-            // 
-            // btnClearHistory
-            // 
-            btnClearHistory.BackColor = Color.FromArgb(64, 64, 64);
-            btnClearHistory.Cursor = Cursors.Hand;
-            btnClearHistory.Font = new Font("Arial", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClearHistory.ForeColor = SystemColors.ControlLight;
-            btnClearHistory.Location = new Point(537, 814);
-            btnClearHistory.Name = "btnClearHistory";
-            btnClearHistory.Size = new Size(300, 100);
-            btnClearHistory.TabIndex = 3;
-            btnClearHistory.Text = "Clear History";
-            btnClearHistory.UseVisualStyleBackColor = false;
             // 
             // pageDetail
             // 
@@ -190,17 +95,49 @@
             pageDetail.TabIndex = 4;
             pageDetail.Visible = false;
             // 
-            // lblDetailTitle
+            // tlpDetailButtons
             // 
-            lblDetailTitle.Dock = DockStyle.Top;
-            lblDetailTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDetailTitle.Location = new Point(0, 0);
-            lblDetailTitle.Name = "lblDetailTitle";
-            lblDetailTitle.Padding = new Padding(0, 10, 0, 10);
-            lblDetailTitle.Size = new Size(1368, 123);
-            lblDetailTitle.TabIndex = 0;
-            lblDetailTitle.Text = "Cart Detail";
-            lblDetailTitle.TextAlign = ContentAlignment.MiddleCenter;
+            tlpDetailButtons.ColumnCount = 3;
+            tlpDetailButtons.ColumnStyles.Add(new ColumnStyle());
+            tlpDetailButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpDetailButtons.ColumnStyles.Add(new ColumnStyle());
+            tlpDetailButtons.Controls.Add(btnBackToHistory, 0, 0);
+            tlpDetailButtons.Controls.Add(btnDeleteCart, 2, 0);
+            tlpDetailButtons.Dock = DockStyle.Bottom;
+            tlpDetailButtons.Location = new Point(0, 805);
+            tlpDetailButtons.Name = "tlpDetailButtons";
+            tlpDetailButtons.RowCount = 1;
+            tlpDetailButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpDetailButtons.Size = new Size(1368, 175);
+            tlpDetailButtons.TabIndex = 3;
+            // 
+            // btnBackToHistory
+            // 
+            btnBackToHistory.BackColor = Color.FromArgb(64, 64, 64);
+            btnBackToHistory.Cursor = Cursors.Hand;
+            btnBackToHistory.Font = new Font("Arial", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackToHistory.ForeColor = SystemColors.ControlLight;
+            btnBackToHistory.Location = new Point(70, 3);
+            btnBackToHistory.Margin = new Padding(70, 3, 3, 3);
+            btnBackToHistory.Name = "btnBackToHistory";
+            btnBackToHistory.Size = new Size(300, 100);
+            btnBackToHistory.TabIndex = 0;
+            btnBackToHistory.Text = "Back To History";
+            btnBackToHistory.UseVisualStyleBackColor = false;
+            // 
+            // btnDeleteCart
+            // 
+            btnDeleteCart.BackColor = Color.FromArgb(64, 64, 64);
+            btnDeleteCart.Cursor = Cursors.Hand;
+            btnDeleteCart.Font = new Font("Arial", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeleteCart.ForeColor = SystemColors.ControlLight;
+            btnDeleteCart.Location = new Point(998, 3);
+            btnDeleteCart.Margin = new Padding(3, 3, 70, 3);
+            btnDeleteCart.Name = "btnDeleteCart";
+            btnDeleteCart.Size = new Size(300, 100);
+            btnDeleteCart.TabIndex = 1;
+            btnDeleteCart.Text = "Delete Cart";
+            btnDeleteCart.UseVisualStyleBackColor = false;
             // 
             // dgvItems
             // 
@@ -264,49 +201,103 @@
             colNote.Name = "colNote";
             colNote.ReadOnly = true;
             // 
-            // tlpDetailButtons
+            // lblDetailTitle
             // 
-            tlpDetailButtons.ColumnCount = 3;
-            tlpDetailButtons.ColumnStyles.Add(new ColumnStyle());
-            tlpDetailButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tlpDetailButtons.ColumnStyles.Add(new ColumnStyle());
-            tlpDetailButtons.Controls.Add(btnBackToHistory, 0, 0);
-            tlpDetailButtons.Controls.Add(btnDeleteCart, 2, 0);
-            tlpDetailButtons.Dock = DockStyle.Bottom;
-            tlpDetailButtons.Location = new Point(0, 805);
-            tlpDetailButtons.Name = "tlpDetailButtons";
-            tlpDetailButtons.RowCount = 1;
-            tlpDetailButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpDetailButtons.Size = new Size(1368, 175);
-            tlpDetailButtons.TabIndex = 3;
+            lblDetailTitle.Dock = DockStyle.Top;
+            lblDetailTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDetailTitle.Location = new Point(0, 0);
+            lblDetailTitle.Name = "lblDetailTitle";
+            lblDetailTitle.Padding = new Padding(0, 10, 0, 10);
+            lblDetailTitle.Size = new Size(1368, 123);
+            lblDetailTitle.TabIndex = 0;
+            lblDetailTitle.Text = "Cart Detail";
+            lblDetailTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnBackToHistory
+            // pageHistory
             // 
-            btnBackToHistory.BackColor = Color.FromArgb(64, 64, 64);
-            btnBackToHistory.Cursor = Cursors.Hand;
-            btnBackToHistory.Font = new Font("Arial", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBackToHistory.ForeColor = SystemColors.ControlLight;
-            btnBackToHistory.Location = new Point(70, 3);
-            btnBackToHistory.Margin = new Padding(70, 3, 3, 3);
-            btnBackToHistory.Name = "btnBackToHistory";
-            btnBackToHistory.Size = new Size(300, 100);
-            btnBackToHistory.TabIndex = 0;
-            btnBackToHistory.Text = "Back To History";
-            btnBackToHistory.UseVisualStyleBackColor = false;
+            pageHistory.Controls.Add(btnClearHistory);
+            pageHistory.Controls.Add(flpHistoryButtons);
+            pageHistory.Controls.Add(dgvCarts);
+            pageHistory.Controls.Add(lblHistoryTitle);
+            pageHistory.Dock = DockStyle.Fill;
+            pageHistory.Location = new Point(0, 0);
+            pageHistory.Name = "pageHistory";
+            pageHistory.Size = new Size(1368, 980);
+            pageHistory.TabIndex = 0;
             // 
-            // btnDeleteCart
+            // btnClearHistory
             // 
-            btnDeleteCart.BackColor = Color.FromArgb(64, 64, 64);
-            btnDeleteCart.Cursor = Cursors.Hand;
-            btnDeleteCart.Font = new Font("Arial", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDeleteCart.ForeColor = SystemColors.ControlLight;
-            btnDeleteCart.Location = new Point(998, 3);
-            btnDeleteCart.Margin = new Padding(3, 3, 70, 3);
-            btnDeleteCart.Name = "btnDeleteCart";
-            btnDeleteCart.Size = new Size(300, 100);
-            btnDeleteCart.TabIndex = 1;
-            btnDeleteCart.Text = "Delete Cart";
-            btnDeleteCart.UseVisualStyleBackColor = false;
+            btnClearHistory.BackColor = Color.FromArgb(64, 64, 64);
+            btnClearHistory.Cursor = Cursors.Hand;
+            btnClearHistory.Font = new Font("Arial", 9.857143F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClearHistory.ForeColor = SystemColors.ControlLight;
+            btnClearHistory.Location = new Point(537, 814);
+            btnClearHistory.Name = "btnClearHistory";
+            btnClearHistory.Size = new Size(300, 100);
+            btnClearHistory.TabIndex = 3;
+            btnClearHistory.Text = "Clear History";
+            btnClearHistory.UseVisualStyleBackColor = false;
+            // 
+            // flpHistoryButtons
+            // 
+            flpHistoryButtons.AutoSize = true;
+            flpHistoryButtons.Dock = DockStyle.Bottom;
+            flpHistoryButtons.Location = new Point(0, 970);
+            flpHistoryButtons.Name = "flpHistoryButtons";
+            flpHistoryButtons.Padding = new Padding(0, 10, 0, 0);
+            flpHistoryButtons.Size = new Size(1368, 10);
+            flpHistoryButtons.TabIndex = 2;
+            // 
+            // dgvCarts
+            // 
+            dgvCarts.AllowUserToAddRows = false;
+            dgvCarts.AllowUserToDeleteRows = false;
+            dgvCarts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCarts.Columns.AddRange(new DataGridViewColumn[] { colCartId, colTotalItems, colPlacedAt });
+            dgvCarts.Location = new Point(0, 123);
+            dgvCarts.MultiSelect = false;
+            dgvCarts.Name = "dgvCarts";
+            dgvCarts.RowHeadersVisible = false;
+            dgvCarts.RowHeadersWidth = 72;
+            dgvCarts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCarts.Size = new Size(1368, 645);
+            dgvCarts.TabIndex = 1;
+            // 
+            // lblHistoryTitle
+            // 
+            lblHistoryTitle.Dock = DockStyle.Top;
+            lblHistoryTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHistoryTitle.Location = new Point(0, 0);
+            lblHistoryTitle.Name = "lblHistoryTitle";
+            lblHistoryTitle.Padding = new Padding(0, 20, 0, 20);
+            lblHistoryTitle.Size = new Size(1368, 123);
+            lblHistoryTitle.TabIndex = 0;
+            lblHistoryTitle.Text = "Cart History";
+            lblHistoryTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // colCartId
+            // 
+            colCartId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCartId.FillWeight = 33F;
+            colCartId.HeaderText = "Cart ID";
+            colCartId.MinimumWidth = 9;
+            colCartId.Name = "colCartId";
+            // 
+            // colTotalItems
+            // 
+            colTotalItems.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colTotalItems.FillWeight = 33F;
+            colTotalItems.HeaderText = "Total Items";
+            colTotalItems.MinimumWidth = 9;
+            colTotalItems.Name = "colTotalItems";
+            // 
+            // colPlacedAt
+            // 
+            colPlacedAt.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colPlacedAt.FillWeight = 33F;
+            colPlacedAt.HeaderText = "Placed At";
+            colPlacedAt.MinimumWidth = 9;
+            colPlacedAt.Name = "colPlacedAt";
             // 
             // CartHistoryControl
             // 
@@ -317,12 +308,12 @@
             Size = new Size(1374, 986);
             tlpMain.ResumeLayout(false);
             pageHost.ResumeLayout(false);
+            pageDetail.ResumeLayout(false);
+            tlpDetailButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
             pageHistory.ResumeLayout(false);
             pageHistory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarts).EndInit();
-            pageDetail.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
-            tlpDetailButtons.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -334,10 +325,6 @@
         private Label lblHistoryTitle;
         private DataGridView dgvCarts;
         private FlowLayoutPanel flpHistoryButtons;
-        private DataGridViewTextBoxColumn colCartId;
-        private DataGridViewTextBoxColumn colTotalItems;
-        private DataGridViewTextBoxColumn colCreatedAt;
-        private DataGridViewTextBoxColumn colCartStatus;
         private Button btnClearHistory;
         private Panel pageDetail;
         private Label lblDetailTitle;
@@ -350,5 +337,8 @@
         private TableLayoutPanel tlpDetailButtons;
         private Button btnBackToHistory;
         private Button btnDeleteCart;
+        private DataGridViewTextBoxColumn colCartId;
+        private DataGridViewTextBoxColumn colTotalItems;
+        private DataGridViewTextBoxColumn colPlacedAt;
     }
 }
