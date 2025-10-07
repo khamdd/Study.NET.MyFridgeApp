@@ -36,7 +36,7 @@ namespace MyFridgeApp
 
         private void AddItemBtn_Click(object sender, EventArgs e)
         {
-
+            LoadScreen(new AddNewItemControl());
         }
     }
 }
