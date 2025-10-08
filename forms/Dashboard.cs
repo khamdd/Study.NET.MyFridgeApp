@@ -38,5 +38,10 @@ namespace MyFridgeApp
         {
 
         }
+
+        private void logBtn_Click(object sender, EventArgs e)
+        {
+            LoadScreen(new LogControl());
+        }
     }
 }

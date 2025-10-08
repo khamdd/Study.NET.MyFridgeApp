@@ -46,6 +46,7 @@
             inventorydgv.Name = "inventorydgv";
             inventorydgv.Size = new Size(784, 327);
             inventorydgv.TabIndex = 1;
+            inventorydgv.SelectionChanged += inventorydgv_SelectionChanged;
             // 
             // searchTextbox
             // 
@@ -80,6 +81,7 @@
             UpdateBtn.TabIndex = 12;
             UpdateBtn.Text = "Update";
             UpdateBtn.UseVisualStyleBackColor = false;
+            UpdateBtn.Click += UpdateBtn_Click;
             // 
             // cmbSearchBy
             // 

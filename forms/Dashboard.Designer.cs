@@ -31,14 +31,14 @@
             HeaderPanel = new Panel();
             AppNameLabel = new Label();
             sidebarPanel = new Panel();
+            logBtn = new Button();
+            shoppingBtn = new Button();
             ExitBtn = new Button();
             DashboardBtn = new Button();
             InventoryBtn = new Button();
             MenuLabel = new Label();
             AddItemBtn = new Button();
             MainPanel = new Panel();
-            shoppingBtn = new Button();
-            logBtn = new Button();
             HeaderPanel.SuspendLayout();
             sidebarPanel.SuspendLayout();
             SuspendLayout();
@@ -79,6 +79,39 @@
             sidebarPanel.Name = "sidebarPanel";
             sidebarPanel.Size = new Size(200, 561);
             sidebarPanel.TabIndex = 1;
+            // 
+            // logBtn
+            // 
+            logBtn.BackColor = Color.FromArgb(64, 64, 64);
+            logBtn.Cursor = Cursors.Hand;
+            logBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            logBtn.FlatAppearance.BorderSize = 0;
+            logBtn.FlatStyle = FlatStyle.Flat;
+            logBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logBtn.ForeColor = SystemColors.Menu;
+            logBtn.Location = new Point(12, 399);
+            logBtn.Name = "logBtn";
+            logBtn.Size = new Size(164, 36);
+            logBtn.TabIndex = 7;
+            logBtn.Text = "Log";
+            logBtn.UseVisualStyleBackColor = false;
+            logBtn.Click += logBtn_Click;
+            // 
+            // shoppingBtn
+            // 
+            shoppingBtn.BackColor = Color.FromArgb(64, 64, 64);
+            shoppingBtn.Cursor = Cursors.Hand;
+            shoppingBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            shoppingBtn.FlatAppearance.BorderSize = 0;
+            shoppingBtn.FlatStyle = FlatStyle.Flat;
+            shoppingBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            shoppingBtn.ForeColor = SystemColors.Menu;
+            shoppingBtn.Location = new Point(12, 342);
+            shoppingBtn.Name = "shoppingBtn";
+            shoppingBtn.Size = new Size(164, 36);
+            shoppingBtn.TabIndex = 6;
+            shoppingBtn.Text = "Shopping";
+            shoppingBtn.UseVisualStyleBackColor = false;
             // 
             // ExitBtn
             // 
@@ -166,38 +199,6 @@
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(784, 501);
             MainPanel.TabIndex = 5;
-            // 
-            // shoppingBtn
-            // 
-            shoppingBtn.BackColor = Color.FromArgb(64, 64, 64);
-            shoppingBtn.Cursor = Cursors.Hand;
-            shoppingBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            shoppingBtn.FlatAppearance.BorderSize = 0;
-            shoppingBtn.FlatStyle = FlatStyle.Flat;
-            shoppingBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            shoppingBtn.ForeColor = SystemColors.Menu;
-            shoppingBtn.Location = new Point(12, 334);
-            shoppingBtn.Name = "shoppingBtn";
-            shoppingBtn.Size = new Size(164, 36);
-            shoppingBtn.TabIndex = 6;
-            shoppingBtn.Text = "Shopping";
-            shoppingBtn.UseVisualStyleBackColor = false;
-            // 
-            // logBtn
-            // 
-            logBtn.BackColor = Color.FromArgb(64, 64, 64);
-            logBtn.Cursor = Cursors.Hand;
-            logBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            logBtn.FlatAppearance.BorderSize = 0;
-            logBtn.FlatStyle = FlatStyle.Flat;
-            logBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            logBtn.ForeColor = SystemColors.Menu;
-            logBtn.Location = new Point(12, 399);
-            logBtn.Name = "logBtn";
-            logBtn.Size = new Size(164, 36);
-            logBtn.TabIndex = 7;
-            logBtn.Text = "Log";
-            logBtn.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
