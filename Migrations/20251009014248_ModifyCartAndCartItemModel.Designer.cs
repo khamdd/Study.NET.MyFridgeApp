@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyFridgeApp.Data;
 
@@ -11,9 +12,11 @@ using MyFridgeApp.Data;
 namespace MyFridgeApp.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20251009014248_ModifyCartAndCartItemModel")]
+    partial class ModifyCartAndCartItemModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,52 +162,6 @@ namespace MyFridgeApp.Migrations
                             Id = 10,
                             Description = "Items not covered by other categories",
                             Name = "Other"
-                        });
-                });
-
-            modelBuilder.Entity("MyFridgeApp.Models.FridgeLog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ActionDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LogDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FridgeLogs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ActionDescription = "Remove Fish Item",
-                            LogDate = new DateTime(2025, 10, 9, 0, 0, 0, 0, DateTimeKind.Local),
-                            Status = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ActionDescription = "Add Apple",
-                            LogDate = new DateTime(2025, 10, 9, 0, 0, 0, 0, DateTimeKind.Local),
-                            Status = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ActionDescription = "Remove Cabbage",
-                            LogDate = new DateTime(2025, 10, 9, 0, 0, 0, 0, DateTimeKind.Local),
-                            Status = 1
                         });
                 });
 

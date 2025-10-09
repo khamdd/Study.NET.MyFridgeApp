@@ -22,6 +22,14 @@ namespace MyFridgeApp
                 MainPanel.Controls.Clear();
             control.Dock = DockStyle.Fill;
             MainPanel.Controls.Add(control);
+
+            //   Subscribe to Navigation Events
+            if (control is ShoppingCartControl sc)
+                sc.RequestNavigate += LoadScreen;
+
+            if (control is AddCartItemControl ac)
+                ac.RequestNavigate += LoadScreen;
+
         }
 
         private void InventoryBtn_Click(object sender, EventArgs e)
@@ -36,7 +44,12 @@ namespace MyFridgeApp
 
         private void AddItemBtn_Click(object sender, EventArgs e)
         {
+            LoadScreen(new AddNewItemControl());
+        }
 
+        private void shoppingBtn_Click(object sender, EventArgs e)
+        {
+            LoadScreen(new ShoppingCartControl());
         }
 
         private void logBtn_Click(object sender, EventArgs e)

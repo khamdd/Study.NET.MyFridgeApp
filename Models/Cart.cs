@@ -11,15 +11,15 @@ namespace MyFridgeApp.Models
     { 
         Open = 0, 
         Ordered = 1, 
-        Cleared = 2 
+        //Cleared = 2 
     }
 
     internal class Cart
     {
         public int Id { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        //public DateTime CreatedAt { get; set; } = DateTime.Now;
         public CartStatus Status { get; set; } = CartStatus.Open;
-
+        public DateTime? PlacedAt { get; set; }
         public List<CartItem> Items { get; set; } = new();
     }
 }
