@@ -40,6 +40,7 @@
             Logdgv.Name = "Logdgv";
             Logdgv.Size = new Size(784, 355);
             Logdgv.TabIndex = 0;
+            Logdgv.CellContentClick += Logdgv_CellContentClick;
             // 
             // LogControl
             // 
@@ -48,6 +49,7 @@
             Controls.Add(Logdgv);
             Name = "LogControl";
             Size = new Size(784, 501);
+            Load += LogControl_Load;
             ((System.ComponentModel.ISupportInitialize)Logdgv).EndInit();
             ResumeLayout(false);
         }

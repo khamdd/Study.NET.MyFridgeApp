@@ -16,5 +16,15 @@ namespace MyFridgeApp.UserControls
         {
             InitializeComponent();
         }
+
+        private void Logdgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void LogControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

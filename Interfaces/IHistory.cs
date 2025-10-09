@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFridgeApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace MyFridgeApp.Interfaces
     internal interface IHistory
     {
         void RecordAction(string actionDescription, DateTime logDate);
-        List<string> GetHistory();
+        List<FridgeLog> GetHistory();
         void ClearHistory();
     }
 }
