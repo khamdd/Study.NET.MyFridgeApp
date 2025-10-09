@@ -168,6 +168,7 @@
             colId.HeaderText = "ID";
             colId.MinimumWidth = 9;
             colId.Name = "colId";
+            colId.Visible = false;
             // 
             // colName
             // 
