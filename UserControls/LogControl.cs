@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace MyFridgeApp.UserControls
 {
-    public partial class CartHistoryControl : UserControl
+    public partial class LogControl : UserControl
     {
-        public CartHistoryControl()
+        public LogControl()
         {
             InitializeComponent();
         }
     }
-
 }

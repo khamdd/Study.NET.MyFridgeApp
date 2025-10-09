@@ -99,6 +99,7 @@
             logBtn.TabIndex = 7;
             logBtn.Text = "Log";
             logBtn.UseVisualStyleBackColor = false;
+            logBtn.Click += logBtn_Click;
             // 
             // shoppingBtn
             // 
@@ -109,7 +110,7 @@
             shoppingBtn.FlatStyle = FlatStyle.Flat;
             shoppingBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             shoppingBtn.ForeColor = SystemColors.Menu;
-            shoppingBtn.Location = new Point(22, 623);
+            shoppingBtn.Location = new Point(22, 638);
             shoppingBtn.Margin = new Padding(6, 6, 6, 6);
             shoppingBtn.Name = "shoppingBtn";
             shoppingBtn.Size = new Size(305, 67);

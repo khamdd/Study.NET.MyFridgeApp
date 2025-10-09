@@ -17,9 +17,9 @@ namespace MyFridgeApp.UserControls
     public partial class InventoryControl : UserControl
     {
         private List<Item> inventoryItems = [];
-        private List<Category> categories = [];
         private readonly ItemService itemService;
         private readonly CategoryService categoryService;
+        private bool isItemSelected = false;
         public InventoryControl()
         {
             InitializeComponent();
@@ -28,25 +28,14 @@ namespace MyFridgeApp.UserControls
         }
         private async void InventoryControl_Load(object sender, EventArgs e)
         {
-            // Load Inventory
-            //inventoryItems = await itemService.GetAllAsync();
+            // Disable buttons initially
+            UpdateBtn.Enabled = false;
+            UpdateBtn.BackColor = Color.LightGray;
 
-            //// Load Categories
-            //categories = await categoryService.GetAllAsync();
-            //var categoryDict = categories.ToDictionary(c => c.Id, c => c.Name);
+            // Only allow full row selection
+            inventorydgv.MultiSelect = false;
+            inventorydgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //// Join items with category names for display
-            //var itemsWithCategoryName = inventoryItems.Select(item => new
-            //{
-            //    item.Id,
-            //    item.Name,
-            //    Category = categoryDict.TryGetValue(item.CategoryId, out string? value) ? value : "Unknown",
-            //    item.Quantity,
-            //    item.Unit,
-            //    item.ImportDate,
-            //    item.ExpiryDate,
-            //    item.Notes
-            //}).ToList();
             using var context = new Context();
             inventoryItems = await context.Items
                 .Include(i => i.Category)       // eager load Category
@@ -75,6 +64,7 @@ namespace MyFridgeApp.UserControls
             cmbSearchBy.Items.Add("Name");
             cmbSearchBy.Items.Add("Category");
             cmbSearchBy.Items.Add("Notes");
+            cmbSearchBy.Items.Add("Expiring in X Days");
             cmbSearchBy.SelectedIndex = 0; // Default to first item
         }
 
@@ -88,6 +78,13 @@ namespace MyFridgeApp.UserControls
             string keyword = searchTextbox.Text.Trim().ToLower();
             string field = cmbSearchBy.SelectedItem?.ToString() ?? "Name";
 
+            bool isInt = int.TryParse(keyword, out int daysUntilExpiry);
+
+            if (field == "Expiring in X Days" && !isInt)
+            {
+                MessageBox.Show("Please enter a valid number of days.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Stop search
+            }
             // Filter items based on selected field
             var filtered = inventoryItems.Where(item =>
             {
@@ -96,6 +93,9 @@ namespace MyFridgeApp.UserControls
                     "Name" => item.Name?.ToLower().Contains(keyword) ?? false,
                     "Category" => item.Category?.Name?.ToLower().Contains(keyword) ?? false,
                     "Notes" => item.Notes?.ToLower().Contains(keyword) ?? false,
+                    "Expiring in X Days" => isInt &&
+                                 (item.ExpiryDate - DateTime.Now).TotalDays >= 0 &&
+                                 (item.ExpiryDate - DateTime.Now).TotalDays <= daysUntilExpiry,
                     _ => false
                 };
             }).ToList();
@@ -116,6 +116,43 @@ namespace MyFridgeApp.UserControls
             // Refresh DataGridView
             inventorydgv.DataSource = null;
             inventorydgv.DataSource = itemsWithCategoryName;
+        }
+
+        private void inventorydgv_SelectionChanged(object sender, EventArgs e)
+        {
+            if (inventorydgv.SelectedRows.Count > 0)
+            {
+                UpdateBtn.Enabled = true;           // enable button
+                UpdateBtn.BackColor = Color.Black; // change color when enabled
+            }
+            else
+            {
+                UpdateBtn.Enabled = false;          // disable button
+                UpdateBtn.BackColor = Color.Gray;   // change color when disabled
+            }
+        }
+
+        private async void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (inventorydgv.SelectedRows.Count == 0) return;
+
+            // Get selected item Id
+            int selectedItemId = (int)inventorydgv.SelectedRows[0].Cells["Id"].Value;
+            // Retrieve the item from the database
+            using var context = new Context();
+            var item = await context.Items
+                                    .Include(i => i.Category)
+                                    .FirstOrDefaultAsync(i => i.Id == selectedItemId);
+
+            if (item == null)
+            {
+                MessageBox.Show("Item not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Navigate to UpdateItemControl
+            MessageBox.Show($"Navigating to update item: {item.Name}", "Update Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

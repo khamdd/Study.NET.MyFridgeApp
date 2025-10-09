@@ -145,8 +145,9 @@
             tlpForm.SetColumnSpan(txtName, 2);
             txtName.Cursor = Cursors.IBeam;
             txtName.Location = new Point(143, 43);
+            txtName.Margin = new Padding(3, 3, 30, 3);
             txtName.Name = "txtName";
-            txtName.Size = new Size(1007, 34);
+            txtName.Size = new Size(980, 34);
             txtName.TabIndex = 5;
             // 
             // cmbCategory
@@ -157,8 +158,9 @@
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
             cmbCategory.Location = new Point(143, 122);
+            cmbCategory.Margin = new Padding(3, 3, 30, 3);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(1007, 36);
+            cmbCategory.Size = new Size(980, 36);
             cmbCategory.TabIndex = 6;
             // 
             // numQuantity
@@ -179,9 +181,9 @@
             flpUnit.AutoSize = true;
             flpUnit.Controls.Add(lblUnit);
             flpUnit.Controls.Add(txtUnit);
-            flpUnit.Location = new Point(958, 200);
+            flpUnit.Location = new Point(931, 200);
             flpUnit.Name = "flpUnit";
-            flpUnit.Size = new Size(192, 40);
+            flpUnit.Size = new Size(219, 40);
             flpUnit.TabIndex = 9;
             flpUnit.WrapContents = false;
             // 
@@ -200,6 +202,7 @@
             txtUnit.Anchor = AnchorStyles.Left;
             txtUnit.Cursor = Cursors.IBeam;
             txtUnit.Location = new Point(69, 3);
+            txtUnit.Margin = new Padding(3, 3, 30, 3);
             txtUnit.Name = "txtUnit";
             txtUnit.Size = new Size(120, 34);
             txtUnit.TabIndex = 1;
@@ -210,10 +213,11 @@
             tlpForm.SetColumnSpan(txtNotes, 2);
             txtNotes.Cursor = Cursors.IBeam;
             txtNotes.Location = new Point(143, 263);
+            txtNotes.Margin = new Padding(3, 3, 30, 3);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
             txtNotes.ScrollBars = ScrollBars.Vertical;
-            txtNotes.Size = new Size(1007, 74);
+            txtNotes.Size = new Size(980, 74);
             txtNotes.TabIndex = 10;
             // 
             // flpFormButtons

@@ -32,18 +32,18 @@
             tlpMain = new TableLayoutPanel();
             lblName = new Label();
             lblCategory = new Label();
+            lblExpiry = new Label();
             lblQuantity = new Label();
             lblNotes = new Label();
             txtName = new TextBox();
             cmbCategory = new ComboBox();
+            dtpExpiry = new DateTimePicker();
             numQuantity = new NumericUpDown();
             flpUnit = new FlowLayoutPanel();
             lblUnit = new Label();
             txtUnit = new TextBox();
             txtNotes = new TextBox();
             btnAdd = new Button();
-            lblExpiry = new Label();
-            dtpExpiry = new DateTimePicker();
             tlpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
             flpUnit.SuspendLayout();
@@ -113,6 +113,16 @@
             lblCategory.TabIndex = 1;
             lblCategory.Text = "Category:";
             // 
+            // lblExpiry
+            // 
+            lblExpiry.Anchor = AnchorStyles.Left;
+            lblExpiry.AutoSize = true;
+            lblExpiry.Location = new Point(29, 206);
+            lblExpiry.Name = "lblExpiry";
+            lblExpiry.Size = new Size(132, 28);
+            lblExpiry.TabIndex = 2;
+            lblExpiry.Text = "Expiry Date:";
+            // 
             // lblQuantity
             // 
             lblQuantity.Anchor = AnchorStyles.Left;
@@ -139,8 +149,9 @@
             tlpMain.SetColumnSpan(txtName, 2);
             txtName.Cursor = Cursors.IBeam;
             txtName.Location = new Point(167, 43);
+            txtName.Margin = new Padding(3, 3, 30, 3);
             txtName.Name = "txtName";
-            txtName.Size = new Size(1191, 34);
+            txtName.Size = new Size(1164, 34);
             txtName.TabIndex = 5;
             // 
             // cmbCategory
@@ -151,9 +162,21 @@
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
             cmbCategory.Location = new Point(167, 122);
+            cmbCategory.Margin = new Padding(3, 3, 30, 3);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(1191, 36);
+            cmbCategory.Size = new Size(1164, 36);
             cmbCategory.TabIndex = 6;
+            // 
+            // dtpExpiry
+            // 
+            dtpExpiry.Anchor = AnchorStyles.Left;
+            tlpMain.SetColumnSpan(dtpExpiry, 2);
+            dtpExpiry.Cursor = Cursors.Hand;
+            dtpExpiry.Format = DateTimePickerFormat.Short;
+            dtpExpiry.Location = new Point(167, 203);
+            dtpExpiry.Name = "dtpExpiry";
+            dtpExpiry.Size = new Size(350, 34);
+            dtpExpiry.TabIndex = 7;
             // 
             // numQuantity
             // 
@@ -173,9 +196,9 @@
             flpUnit.AutoSize = true;
             flpUnit.Controls.Add(lblUnit);
             flpUnit.Controls.Add(txtUnit);
-            flpUnit.Location = new Point(1166, 280);
+            flpUnit.Location = new Point(1139, 280);
             flpUnit.Name = "flpUnit";
-            flpUnit.Size = new Size(192, 40);
+            flpUnit.Size = new Size(219, 40);
             flpUnit.TabIndex = 9;
             flpUnit.WrapContents = false;
             // 
@@ -194,6 +217,7 @@
             txtUnit.Anchor = AnchorStyles.Left;
             txtUnit.Cursor = Cursors.IBeam;
             txtUnit.Location = new Point(69, 3);
+            txtUnit.Margin = new Padding(3, 3, 30, 3);
             txtUnit.Name = "txtUnit";
             txtUnit.Size = new Size(120, 34);
             txtUnit.TabIndex = 1;
@@ -204,10 +228,11 @@
             tlpMain.SetColumnSpan(txtNotes, 2);
             txtNotes.Cursor = Cursors.IBeam;
             txtNotes.Location = new Point(167, 343);
+            txtNotes.Margin = new Padding(3, 3, 30, 3);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
             txtNotes.ScrollBars = ScrollBars.Vertical;
-            txtNotes.Size = new Size(1191, 74);
+            txtNotes.Size = new Size(1164, 74);
             txtNotes.TabIndex = 10;
             // 
             // btnAdd
@@ -225,27 +250,6 @@
             btnAdd.Text = "Add Item";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
-            // 
-            // lblExpiry
-            // 
-            lblExpiry.Anchor = AnchorStyles.Left;
-            lblExpiry.AutoSize = true;
-            lblExpiry.Location = new Point(29, 206);
-            lblExpiry.Name = "lblExpiry";
-            lblExpiry.Size = new Size(132, 28);
-            lblExpiry.TabIndex = 2;
-            lblExpiry.Text = "Expiry Date:";
-            // 
-            // dtpExpiry
-            // 
-            dtpExpiry.Anchor = AnchorStyles.Left;
-            tlpMain.SetColumnSpan(dtpExpiry, 2);
-            dtpExpiry.Cursor = Cursors.Hand;
-            dtpExpiry.Format = DateTimePickerFormat.Short;
-            dtpExpiry.Location = new Point(167, 203);
-            dtpExpiry.Name = "dtpExpiry";
-            dtpExpiry.Size = new Size(350, 34);
-            dtpExpiry.TabIndex = 7;
             // 
             // AddNewItemControl
             // 

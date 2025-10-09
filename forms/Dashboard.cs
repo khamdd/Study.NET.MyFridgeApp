@@ -23,7 +23,7 @@ namespace MyFridgeApp
             control.Dock = DockStyle.Fill;
             MainPanel.Controls.Add(control);
 
-          //   Subscribe to Navigation Events
+            //   Subscribe to Navigation Events
             if (control is ShoppingCartControl sc)
                 sc.RequestNavigate += LoadScreen;
 
@@ -50,6 +50,11 @@ namespace MyFridgeApp
         private void shoppingBtn_Click(object sender, EventArgs e)
         {
             LoadScreen(new ShoppingCartControl());
+        }
+
+        private void logBtn_Click(object sender, EventArgs e)
+        {
+            LoadScreen(new LogControl());
         }
     }
 }
