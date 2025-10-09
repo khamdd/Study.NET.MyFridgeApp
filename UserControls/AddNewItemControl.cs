@@ -29,14 +29,11 @@ namespace MyFridgeApp.UserControls
         }
 
         /// <summary>
-        /// Runs after the control's handle is created.
-        /// We defer one UI frame using Task.Yield() to ensure the control is fully ready.
+        /// Load-time initialization: bind category list once the control is about to be shown.
         /// </summary>
-        protected override async void OnHandleCreated(EventArgs e)
+        private async void AddNewItemControl_Load(object sender, EventArgs e)
         {
-            base.OnHandleCreated(e);
-            await Task.Yield();                 
-            await LoadCategoriesAsync();        // Load and bind category list
+            await LoadCategoriesAsync();
         }
 
         /// <summary>

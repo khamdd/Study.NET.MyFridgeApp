@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             tlpOuter = new TableLayoutPanel();
-            lblTitle = new Label();
             tlpForm = new TableLayoutPanel();
             lblName = new Label();
             lblCategory = new Label();
-            lblExpiry = new Label();
             lblQuantity = new Label();
             lblNotes = new Label();
             txtName = new TextBox();
             cmbCategory = new ComboBox();
-            dtpExpiry = new DateTimePicker();
             numQuantity = new NumericUpDown();
             flpUnit = new FlowLayoutPanel();
             lblUnit = new Label();
@@ -47,6 +44,7 @@
             flpFormButtons = new FlowLayoutPanel();
             btnSave = new Button();
             btnCancel = new Button();
+            lblTitle = new Label();
             tlpOuter.SuspendLayout();
             tlpForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
@@ -70,19 +68,6 @@
             tlpOuter.Size = new Size(1217, 896);
             tlpOuter.TabIndex = 0;
             // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Dock = DockStyle.Top;
-            lblTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(19, 16);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Padding = new Padding(0, 20, 0, 20);
-            lblTitle.Size = new Size(1179, 89);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "Add Item";
-            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // tlpForm
             // 
             tlpForm.ColumnCount = 3;
@@ -91,27 +76,25 @@
             tlpForm.ColumnStyles.Add(new ColumnStyle());
             tlpForm.Controls.Add(lblName, 0, 0);
             tlpForm.Controls.Add(lblCategory, 0, 1);
-            tlpForm.Controls.Add(lblExpiry, 0, 2);
-            tlpForm.Controls.Add(lblQuantity, 0, 3);
-            tlpForm.Controls.Add(lblNotes, 0, 4);
+            tlpForm.Controls.Add(lblQuantity, 0, 2);
+            tlpForm.Controls.Add(lblNotes, 0, 3);
             tlpForm.Controls.Add(txtName, 1, 0);
             tlpForm.Controls.Add(cmbCategory, 1, 1);
-            tlpForm.Controls.Add(dtpExpiry, 1, 2);
-            tlpForm.Controls.Add(numQuantity, 1, 3);
-            tlpForm.Controls.Add(flpUnit, 2, 3);
-            tlpForm.Controls.Add(txtNotes, 1, 4);
-            tlpForm.Controls.Add(flpFormButtons, 1, 5);
+            tlpForm.Controls.Add(numQuantity, 1, 2);
+            tlpForm.Controls.Add(flpUnit, 2, 2);
+            tlpForm.Controls.Add(txtNotes, 1, 3);
+            tlpForm.Controls.Add(flpFormButtons, 1, 4);
             tlpForm.Dock = DockStyle.Fill;
             tlpForm.Location = new Point(19, 108);
             tlpForm.Name = "tlpForm";
             tlpForm.Padding = new Padding(26, 20, 26, 26);
-            tlpForm.RowCount = 6;
+            tlpForm.RowCount = 5;
             tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
-            tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
+            tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tlpForm.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tlpForm.Size = new Size(1179, 769);
             tlpForm.TabIndex = 2;
@@ -136,21 +119,11 @@
             lblCategory.TabIndex = 1;
             lblCategory.Text = "Category:";
             // 
-            // lblExpiry
-            // 
-            lblExpiry.Anchor = AnchorStyles.Left;
-            lblExpiry.AutoSize = true;
-            lblExpiry.Location = new Point(29, 206);
-            lblExpiry.Name = "lblExpiry";
-            lblExpiry.Size = new Size(132, 28);
-            lblExpiry.TabIndex = 2;
-            lblExpiry.Text = "Expiry Date:";
-            // 
             // lblQuantity
             // 
             lblQuantity.Anchor = AnchorStyles.Left;
             lblQuantity.AutoSize = true;
-            lblQuantity.Location = new Point(29, 286);
+            lblQuantity.Location = new Point(29, 206);
             lblQuantity.Name = "lblQuantity";
             lblQuantity.Size = new Size(105, 28);
             lblQuantity.TabIndex = 3;
@@ -160,7 +133,7 @@
             // 
             lblNotes.Anchor = AnchorStyles.Left;
             lblNotes.AutoSize = true;
-            lblNotes.Location = new Point(29, 366);
+            lblNotes.Location = new Point(29, 286);
             lblNotes.Name = "lblNotes";
             lblNotes.Size = new Size(77, 28);
             lblNotes.TabIndex = 4;
@@ -171,9 +144,9 @@
             txtName.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             tlpForm.SetColumnSpan(txtName, 2);
             txtName.Cursor = Cursors.IBeam;
-            txtName.Location = new Point(167, 43);
+            txtName.Location = new Point(143, 43);
             txtName.Name = "txtName";
-            txtName.Size = new Size(983, 34);
+            txtName.Size = new Size(1007, 34);
             txtName.TabIndex = 5;
             // 
             // cmbCategory
@@ -183,27 +156,16 @@
             cmbCategory.Cursor = Cursors.Hand;
             cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(167, 122);
+            cmbCategory.Location = new Point(143, 122);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(983, 36);
+            cmbCategory.Size = new Size(1007, 36);
             cmbCategory.TabIndex = 6;
-            // 
-            // dtpExpiry
-            // 
-            dtpExpiry.Anchor = AnchorStyles.Left;
-            tlpForm.SetColumnSpan(dtpExpiry, 2);
-            dtpExpiry.Cursor = Cursors.Hand;
-            dtpExpiry.Format = DateTimePickerFormat.Short;
-            dtpExpiry.Location = new Point(167, 203);
-            dtpExpiry.Name = "dtpExpiry";
-            dtpExpiry.Size = new Size(350, 34);
-            dtpExpiry.TabIndex = 7;
             // 
             // numQuantity
             // 
             numQuantity.Anchor = AnchorStyles.Left;
             numQuantity.Cursor = Cursors.Hand;
-            numQuantity.Location = new Point(167, 283);
+            numQuantity.Location = new Point(143, 203);
             numQuantity.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numQuantity.Name = "numQuantity";
@@ -217,7 +179,7 @@
             flpUnit.AutoSize = true;
             flpUnit.Controls.Add(lblUnit);
             flpUnit.Controls.Add(txtUnit);
-            flpUnit.Location = new Point(958, 280);
+            flpUnit.Location = new Point(958, 200);
             flpUnit.Name = "flpUnit";
             flpUnit.Size = new Size(192, 40);
             flpUnit.TabIndex = 9;
@@ -247,11 +209,11 @@
             txtNotes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tlpForm.SetColumnSpan(txtNotes, 2);
             txtNotes.Cursor = Cursors.IBeam;
-            txtNotes.Location = new Point(167, 343);
+            txtNotes.Location = new Point(143, 263);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
             txtNotes.ScrollBars = ScrollBars.Vertical;
-            txtNotes.Size = new Size(983, 74);
+            txtNotes.Size = new Size(1007, 74);
             txtNotes.TabIndex = 10;
             // 
             // flpFormButtons
@@ -261,7 +223,7 @@
             tlpForm.SetColumnSpan(flpFormButtons, 3);
             flpFormButtons.Controls.Add(btnSave);
             flpFormButtons.Controls.Add(btnCancel);
-            flpFormButtons.Location = new Point(199, 561);
+            flpFormButtons.Location = new Point(199, 521);
             flpFormButtons.Name = "flpFormButtons";
             flpFormButtons.Size = new Size(780, 120);
             flpFormButtons.TabIndex = 11;
@@ -281,6 +243,7 @@
             btnSave.Text = "Add Item";
             btnSave.UseVisualStyleBackColor = false;
             btnSave.UseWaitCursor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -296,6 +259,20 @@
             btnCancel.TabIndex = 1;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Dock = DockStyle.Top;
+            lblTitle.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(19, 16);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Padding = new Padding(0, 20, 0, 20);
+            lblTitle.Size = new Size(1179, 89);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Add Item";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // AddCartItemControl
             // 
@@ -304,6 +281,7 @@
             Controls.Add(tlpOuter);
             Name = "AddCartItemControl";
             Size = new Size(1217, 896);
+            Load += AddCartItemControl_Load;
             tlpOuter.ResumeLayout(false);
             tlpOuter.PerformLayout();
             tlpForm.ResumeLayout(false);
@@ -323,12 +301,10 @@
         private TableLayoutPanel tlpForm;
         private Label lblName;
         private Label lblCategory;
-        private Label lblExpiry;
         private Label lblQuantity;
         private Label lblNotes;
         private TextBox txtName;
         private ComboBox cmbCategory;
-        private DateTimePicker dtpExpiry;
         private NumericUpDown numQuantity;
         private FlowLayoutPanel flpUnit;
         private Label lblUnit;

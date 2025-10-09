@@ -30,21 +30,22 @@
         {
             tlpMain = new TableLayoutPanel();
             lblTitle = new Label();
-            agvCart = new DataGridView();
             flpButtons = new FlowLayoutPanel();
             btnAddNewItem = new Button();
             btnPlaceOrder = new Button();
             btnClearCart = new Button();
+            dgvCart = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
             colName = new DataGridViewTextBoxColumn();
             colCategory = new DataGridViewTextBoxColumn();
-            colQty = new DataGridViewTextBoxColumn();
+            colQuantity = new DataGridViewTextBoxColumn();
             colUnit = new DataGridViewTextBoxColumn();
-            colNote = new DataGridViewTextBoxColumn();
+            colNotes = new DataGridViewTextBoxColumn();
             colEdit = new DataGridViewButtonColumn();
             colDelete = new DataGridViewButtonColumn();
             tlpMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)agvCart).BeginInit();
             flpButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             SuspendLayout();
             // 
             // tlpMain
@@ -53,7 +54,7 @@
             tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpMain.Controls.Add(lblTitle, 0, 0);
             tlpMain.Controls.Add(flpButtons, 0, 2);
-            tlpMain.Controls.Add(agvCart, 0, 1);
+            tlpMain.Controls.Add(dgvCart, 0, 1);
             tlpMain.Dock = DockStyle.Fill;
             tlpMain.Location = new Point(0, 0);
             tlpMain.Name = "tlpMain";
@@ -77,23 +78,6 @@
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Shopping Cart";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // agvCart
-            // 
-            agvCart.AllowUserToAddRows = false;
-            agvCart.AllowUserToDeleteRows = false;
-            agvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            agvCart.Columns.AddRange(new DataGridViewColumn[] { colName, colCategory, colQty, colUnit, colNote, colEdit, colDelete });
-            agvCart.Dock = DockStyle.Fill;
-            agvCart.EditMode = DataGridViewEditMode.EditOnEnter;
-            agvCart.Location = new Point(19, 108);
-            agvCart.MultiSelect = false;
-            agvCart.Name = "agvCart";
-            agvCart.RowHeadersVisible = false;
-            agvCart.RowHeadersWidth = 72;
-            agvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            agvCart.Size = new Size(1288, 712);
-            agvCart.TabIndex = 1;
             // 
             // flpButtons
             // 
@@ -124,6 +108,7 @@
             btnAddNewItem.Text = "Add New Item";
             btnAddNewItem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnAddNewItem.UseVisualStyleBackColor = false;
+            btnAddNewItem.Click += btnAddNewItem_Click;
             // 
             // btnPlaceOrder
             // 
@@ -139,6 +124,7 @@
             btnPlaceOrder.TabIndex = 1;
             btnPlaceOrder.Text = "Place Order";
             btnPlaceOrder.UseVisualStyleBackColor = false;
+            btnPlaceOrder.Click += btnPlaceOrder_Click;
             // 
             // btnClearCart
             // 
@@ -154,11 +140,40 @@
             btnClearCart.TabIndex = 2;
             btnClearCart.Text = "Clear Cart";
             btnClearCart.UseVisualStyleBackColor = false;
+            btnClearCart.Click += btnClearCart_Click;
+            // 
+            // dgvCart
+            // 
+            dgvCart.AllowUserToAddRows = false;
+            dgvCart.AllowUserToDeleteRows = false;
+            dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCart.Columns.AddRange(new DataGridViewColumn[] { colId, colName, colCategory, colQuantity, colUnit, colNotes, colEdit, colDelete });
+            dgvCart.Dock = DockStyle.Fill;
+            dgvCart.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvCart.Location = new Point(19, 108);
+            dgvCart.MultiSelect = false;
+            dgvCart.Name = "dgvCart";
+            dgvCart.RowHeadersVisible = false;
+            dgvCart.RowHeadersWidth = 72;
+            dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCart.Size = new Size(1288, 712);
+            dgvCart.TabIndex = 1;
+            dgvCart.CellContentClick += dgvCart_CellContentClick;
+            // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.DataPropertyName = "Id";
+            colId.FillWeight = 12.5F;
+            colId.HeaderText = "ID";
+            colId.MinimumWidth = 9;
+            colId.Name = "colId";
             // 
             // colName
             // 
             colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colName.FillWeight = 14F;
+            colName.DataPropertyName = "Name";
+            colName.FillWeight = 12.5F;
             colName.HeaderText = "Name";
             colName.MinimumWidth = 9;
             colName.Name = "colName";
@@ -166,51 +181,57 @@
             // colCategory
             // 
             colCategory.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCategory.FillWeight = 14F;
+            colCategory.DataPropertyName = "Category";
+            colCategory.FillWeight = 12.5F;
             colCategory.HeaderText = "Category";
             colCategory.MinimumWidth = 9;
             colCategory.Name = "colCategory";
             // 
-            // colQty
+            // colQuantity
             // 
-            colQty.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colQty.FillWeight = 14F;
-            colQty.HeaderText = "Quantity";
-            colQty.MinimumWidth = 9;
-            colQty.Name = "colQty";
+            colQuantity.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colQuantity.DataPropertyName = "Quantity";
+            colQuantity.FillWeight = 12.5F;
+            colQuantity.HeaderText = "Quantity";
+            colQuantity.MinimumWidth = 9;
+            colQuantity.Name = "colQuantity";
             // 
             // colUnit
             // 
             colUnit.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colUnit.FillWeight = 14F;
+            colUnit.DataPropertyName = "Unit";
+            colUnit.FillWeight = 12.5F;
             colUnit.HeaderText = "Unit";
             colUnit.MinimumWidth = 9;
             colUnit.Name = "colUnit";
             // 
-            // colNote
+            // colNotes
             // 
-            colNote.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colNote.FillWeight = 14F;
-            colNote.HeaderText = "Note";
-            colNote.MinimumWidth = 9;
-            colNote.Name = "colNote";
+            colNotes.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colNotes.DataPropertyName = "Notes";
+            colNotes.FillWeight = 12.5F;
+            colNotes.HeaderText = "Notes";
+            colNotes.MinimumWidth = 9;
+            colNotes.Name = "colNotes";
             // 
             // colEdit
             // 
             colEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colEdit.FillWeight = 14F;
+            colEdit.FillWeight = 12.5F;
             colEdit.HeaderText = "Edit";
             colEdit.MinimumWidth = 9;
             colEdit.Name = "colEdit";
+            colEdit.Text = "Edit";
             colEdit.UseColumnTextForButtonValue = true;
             // 
             // colDelete
             // 
             colDelete.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDelete.FillWeight = 14F;
+            colDelete.FillWeight = 12.5F;
             colDelete.HeaderText = "Delete";
             colDelete.MinimumWidth = 9;
             colDelete.Name = "colDelete";
+            colDelete.Text = "Delete";
             colDelete.UseColumnTextForButtonValue = true;
             // 
             // ShoppingCartControl
@@ -220,11 +241,12 @@
             Controls.Add(tlpMain);
             Name = "ShoppingCartControl";
             Size = new Size(1326, 957);
+            Load += ShoppingCartControl_Load;
             tlpMain.ResumeLayout(false);
             tlpMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)agvCart).EndInit();
             flpButtons.ResumeLayout(false);
             flpButtons.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCart).EndInit();
             ResumeLayout(false);
         }
 
@@ -232,16 +254,17 @@
 
         private TableLayoutPanel tlpMain;
         private Label lblTitle;
-        private DataGridView agvCart;
+        private DataGridView dgvCart;
         private FlowLayoutPanel flpButtons;
         private Button btnAddNewItem;
         private Button btnPlaceOrder;
         private Button btnClearCart;
+        private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colCategory;
-        private DataGridViewTextBoxColumn colQty;
+        private DataGridViewTextBoxColumn colQuantity;
         private DataGridViewTextBoxColumn colUnit;
-        private DataGridViewTextBoxColumn colNote;
+        private DataGridViewTextBoxColumn colNotes;
         private DataGridViewButtonColumn colEdit;
         private DataGridViewButtonColumn colDelete;
     }

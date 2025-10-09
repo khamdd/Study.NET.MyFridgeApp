@@ -39,11 +39,11 @@ namespace MyFridgeApp.Data
 
             // CartItem -> Item (optional FK; if the inventory Item is removed, 
             // keep the CartItem history and set ItemId to null)
-            modelBuilder.Entity<CartItem>()
-                .HasOne(ci => ci.Item)
-                .WithMany()
-                .HasForeignKey(ci => ci.ItemId)
-                .OnDelete(DeleteBehavior.SetNull);
+            //modelBuilder.Entity<CartItem>()
+            //    .HasOne(ci => ci.Item)
+            //    .WithMany()
+            //    .HasForeignKey(ci => ci.ItemId)
+            //    .OnDelete(DeleteBehavior.SetNull);
 
             // Seed fixed Categories (user cannot change these)
             modelBuilder.Entity<Category>().HasData(

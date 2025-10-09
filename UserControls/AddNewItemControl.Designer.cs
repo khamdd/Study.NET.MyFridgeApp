@@ -32,18 +32,18 @@
             tlpMain = new TableLayoutPanel();
             lblName = new Label();
             lblCategory = new Label();
-            lblExpiry = new Label();
             lblQuantity = new Label();
             lblNotes = new Label();
             txtName = new TextBox();
             cmbCategory = new ComboBox();
-            dtpExpiry = new DateTimePicker();
             numQuantity = new NumericUpDown();
             flpUnit = new FlowLayoutPanel();
             lblUnit = new Label();
             txtUnit = new TextBox();
             txtNotes = new TextBox();
             btnAdd = new Button();
+            lblExpiry = new Label();
+            dtpExpiry = new DateTimePicker();
             tlpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
             flpUnit.SuspendLayout();
@@ -113,16 +113,6 @@
             lblCategory.TabIndex = 1;
             lblCategory.Text = "Category:";
             // 
-            // lblExpiry
-            // 
-            lblExpiry.Anchor = AnchorStyles.Left;
-            lblExpiry.AutoSize = true;
-            lblExpiry.Location = new Point(29, 206);
-            lblExpiry.Name = "lblExpiry";
-            lblExpiry.Size = new Size(132, 28);
-            lblExpiry.TabIndex = 2;
-            lblExpiry.Text = "Expiry Date:";
-            // 
             // lblQuantity
             // 
             lblQuantity.Anchor = AnchorStyles.Left;
@@ -164,17 +154,6 @@
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(1191, 36);
             cmbCategory.TabIndex = 6;
-            // 
-            // dtpExpiry
-            // 
-            dtpExpiry.Anchor = AnchorStyles.Left;
-            tlpMain.SetColumnSpan(dtpExpiry, 2);
-            dtpExpiry.Cursor = Cursors.Hand;
-            dtpExpiry.Format = DateTimePickerFormat.Short;
-            dtpExpiry.Location = new Point(167, 203);
-            dtpExpiry.Name = "dtpExpiry";
-            dtpExpiry.Size = new Size(350, 34);
-            dtpExpiry.TabIndex = 7;
             // 
             // numQuantity
             // 
@@ -247,6 +226,27 @@
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
+            // lblExpiry
+            // 
+            lblExpiry.Anchor = AnchorStyles.Left;
+            lblExpiry.AutoSize = true;
+            lblExpiry.Location = new Point(29, 206);
+            lblExpiry.Name = "lblExpiry";
+            lblExpiry.Size = new Size(132, 28);
+            lblExpiry.TabIndex = 2;
+            lblExpiry.Text = "Expiry Date:";
+            // 
+            // dtpExpiry
+            // 
+            dtpExpiry.Anchor = AnchorStyles.Left;
+            tlpMain.SetColumnSpan(dtpExpiry, 2);
+            dtpExpiry.Cursor = Cursors.Hand;
+            dtpExpiry.Format = DateTimePickerFormat.Short;
+            dtpExpiry.Location = new Point(167, 203);
+            dtpExpiry.Name = "dtpExpiry";
+            dtpExpiry.Size = new Size(350, 34);
+            dtpExpiry.TabIndex = 7;
+            // 
             // AddNewItemControl
             // 
             AutoScaleDimensions = new SizeF(13F, 28F);
@@ -255,6 +255,7 @@
             Controls.Add(lblTitle);
             Name = "AddNewItemControl";
             Size = new Size(1387, 909);
+            Load += AddNewItemControl_Load;
             tlpMain.ResumeLayout(false);
             tlpMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numQuantity).EndInit();
@@ -269,17 +270,17 @@
         private TableLayoutPanel tlpMain;
         private Label lblName;
         private Label lblCategory;
-        private Label lblExpiry;
         private Label lblQuantity;
         private Label lblNotes;
         private TextBox txtName;
         private ComboBox cmbCategory;
-        private DateTimePicker dtpExpiry;
         private NumericUpDown numQuantity;
         private FlowLayoutPanel flpUnit;
         private Label lblUnit;
         private TextBox txtUnit;
         private TextBox txtNotes;
         private Button btnAdd;
+        private Label lblExpiry;
+        private DateTimePicker dtpExpiry;
     }
 }
