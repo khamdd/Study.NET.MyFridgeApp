@@ -75,7 +75,7 @@
             UpdateBtn.FlatStyle = FlatStyle.Flat;
             UpdateBtn.Font = new Font("Tahoma", 10F);
             UpdateBtn.ForeColor = SystemColors.Menu;
-            UpdateBtn.Location = new Point(349, 363);
+            UpdateBtn.Location = new Point(358, 362);
             UpdateBtn.Name = "UpdateBtn";
             UpdateBtn.Size = new Size(71, 36);
             UpdateBtn.TabIndex = 12;

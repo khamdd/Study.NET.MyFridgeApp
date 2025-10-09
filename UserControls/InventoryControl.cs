@@ -17,14 +17,9 @@ namespace MyFridgeApp.UserControls
     public partial class InventoryControl : UserControl
     {
         private List<Item> inventoryItems = [];
-        private readonly ItemService itemService;
-        private readonly CategoryService categoryService;
-        private bool isItemSelected = false;
         public InventoryControl()
         {
             InitializeComponent();
-            itemService = new();
-            categoryService = new();
         }
         private async void InventoryControl_Load(object sender, EventArgs e)
         {

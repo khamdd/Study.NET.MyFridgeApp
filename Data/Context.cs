@@ -101,6 +101,12 @@ namespace MyFridgeApp.Data
                 new Item { Id = 20, Name = "Butter", CategoryId = 10, ImportDate = new DateTime(2025, 9, 26), ExpiryDate = new DateTime(2025, 10, 16), Quantity = 250, Unit = "g", Notes = "Salted", Status = ItemStatus.Active },
                 new Item { Id = 21, Name = "Pickles", CategoryId = 10, ImportDate = new DateTime(2025, 9, 21), ExpiryDate = new DateTime(2026, 3, 21), Quantity = 1, Unit = "jar", Notes = "Homemade", Status = ItemStatus.Active }
             );
+
+            modelBuilder.Entity<FridgeLog>().HasData(
+                new FridgeLog { Id = 1, ActionDescription = "Remove Fish Item", LogDate = DateTime.Today },
+                new FridgeLog { Id = 2, ActionDescription = "Add Apple", LogDate = DateTime.Today },
+                new FridgeLog { Id = 3, ActionDescription = "Remove Cabbage", LogDate = DateTime.Today }
+            );
         }
 
     }
