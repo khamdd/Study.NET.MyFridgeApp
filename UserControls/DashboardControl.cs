@@ -18,6 +18,7 @@ namespace MyFridgeApp.UserControls
         private List<Item> items = [];
         private int totalItems;
         private readonly ItemService itemService;
+        public event Action<UserControl>? RequestNavigate;
         public DashboardControl()
         {
             InitializeComponent();
@@ -75,6 +76,12 @@ namespace MyFridgeApp.UserControls
         {
             var items = await itemService.GetAllAsync();
             totalItems = items.Count;
+        }
+
+        private void GoToInventoryBtn_Click(object sender, EventArgs e)
+        {
+            var inventoryControl = new InventoryControl();
+            RequestNavigate?.Invoke(inventoryControl);
         }
     }
 }

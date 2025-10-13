@@ -81,6 +81,7 @@
             GoToInventoryBtn.TabIndex = 12;
             GoToInventoryBtn.Text = "Check Inventory";
             GoToInventoryBtn.UseVisualStyleBackColor = false;
+            GoToInventoryBtn.Click += GoToInventoryBtn_Click;
             // 
             // DashboardControl
             // 

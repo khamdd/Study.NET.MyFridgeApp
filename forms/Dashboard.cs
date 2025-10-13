@@ -23,13 +23,15 @@ namespace MyFridgeApp
             control.Dock = DockStyle.Fill;
             MainPanel.Controls.Add(control);
 
-            //   Subscribe to Navigation Events
+            // Subscribe to Navigation Events
             if (control is ShoppingCartControl sc)
                 sc.RequestNavigate += LoadScreen;
 
             if (control is AddCartItemControl ac)
                 ac.RequestNavigate += LoadScreen;
 
+            if (control is DashboardControl dc)
+                dc.RequestNavigate += LoadScreen;
         }
 
         private void InventoryBtn_Click(object sender, EventArgs e)
