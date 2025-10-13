@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyFridgeApp.Models
 {
-    internal class CartItem
+    public class CartItem
     {
         // Link to existing inventory item IF it came from Inventory
         public int Id { get; set; }

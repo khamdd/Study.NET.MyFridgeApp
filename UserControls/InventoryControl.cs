@@ -17,10 +17,18 @@ namespace MyFridgeApp.UserControls
     public partial class InventoryControl : UserControl
     {
         private List<Item> inventoryItems = [];
+        private readonly List<Item>? _providedItems = [];
         public InventoryControl()
         {
             InitializeComponent();
+            _providedItems = null;
         }
+        public InventoryControl(List<Item> items)
+        {
+            InitializeComponent();
+            _providedItems = items;
+        }
+
         private async void InventoryControl_Load(object sender, EventArgs e)
         {
             // Disable buttons initially
@@ -31,14 +39,20 @@ namespace MyFridgeApp.UserControls
             inventorydgv.MultiSelect = false;
             inventorydgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            using var context = new Context();
-            inventoryItems = await context.Items
-                .Include(i => i.Category)       // eager load Category
-                .AsNoTracking()                 // read-only, prevents disposed context issues
-                .OrderBy(i => i.ExpiryDate)
-                .ThenBy(i => i.Name)
-                .ToListAsync();
-
+            if (_providedItems != null)
+            {
+                inventoryItems = _providedItems;
+            }
+            else
+            {
+                using var context = new Context();
+                inventoryItems = await context.Items
+                    .Include(i => i.Category)       // eager load Category
+                    .AsNoTracking()                 // read-only, prevents disposed context issues
+                    .OrderBy(i => i.ExpiryDate)
+                    .ThenBy(i => i.Name)
+                    .ToListAsync();
+            }
             // Map items to display object
             var itemsWithCategoryName = inventoryItems.Select(item => new
             {

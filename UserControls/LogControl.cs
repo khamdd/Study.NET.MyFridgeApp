@@ -28,6 +28,7 @@ namespace MyFridgeApp.UserControls
             // Log Datagridview Config
             Logdgv.MultiSelect = false;
             Logdgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Logdgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Load logs from database
             using var context = new Context();

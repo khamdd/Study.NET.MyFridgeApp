@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MyFridgeApp.Models
 {
-    internal enum LogStatus
+    public enum LogStatus
     {
         Removed,
         Active
     }
-    internal class FridgeLog
+    public class FridgeLog
     {
         public int Id { get; set; }
         public string ActionDescription { get; set; } = string.Empty;

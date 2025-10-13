@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MyFridgeApp.Models
 {
-    internal enum ItemStatus
+    public enum ItemStatus
     {
         Active = 0,
         Deleted = 1
     }
 
-    internal class Item
+    public class Item
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

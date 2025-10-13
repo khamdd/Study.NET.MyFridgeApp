@@ -65,6 +65,7 @@
             AboutExpiredInventoryBtn.TabIndex = 11;
             AboutExpiredInventoryBtn.Text = "Check";
             AboutExpiredInventoryBtn.UseVisualStyleBackColor = false;
+            AboutExpiredInventoryBtn.Click += AboutExpiredInventoryBtn_Click;
             // 
             // GoToInventoryBtn
             // 

@@ -83,5 +83,14 @@ namespace MyFridgeApp.UserControls
             var inventoryControl = new InventoryControl();
             RequestNavigate?.Invoke(inventoryControl);
         }
+
+        private async void AboutExpiredInventoryBtn_Click(object sender, EventArgs e)
+        {
+            int daysThreshold = 5; // Define "about to expire" as within the next 5 days
+            List<Item> items = await itemService.GetExpiringSoonAsync(daysThreshold);
+
+            var inventoryControl = new InventoryControl(items);
+            RequestNavigate?.Invoke(inventoryControl);
+        }
     }
 }
