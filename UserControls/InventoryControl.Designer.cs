@@ -34,6 +34,7 @@
             UpdateBtn = new Button();
             cmbSearchBy = new ComboBox();
             SearchBtn = new Button();
+            deleteItemBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)inventorydgv).BeginInit();
             SuspendLayout();
             // 
@@ -75,11 +76,11 @@
             UpdateBtn.FlatStyle = FlatStyle.Flat;
             UpdateBtn.Font = new Font("Tahoma", 10F);
             UpdateBtn.ForeColor = SystemColors.Menu;
-            UpdateBtn.Location = new Point(358, 362);
+            UpdateBtn.Location = new Point(281, 362);
             UpdateBtn.Name = "UpdateBtn";
-            UpdateBtn.Size = new Size(71, 36);
+            UpdateBtn.Size = new Size(115, 36);
             UpdateBtn.TabIndex = 12;
-            UpdateBtn.Text = "Update";
+            UpdateBtn.Text = "Update Item";
             UpdateBtn.UseVisualStyleBackColor = false;
             UpdateBtn.Click += UpdateBtn_Click;
             // 
@@ -109,10 +110,28 @@
             SearchBtn.UseVisualStyleBackColor = false;
             SearchBtn.Click += SearchBtn_Click;
             // 
+            // deleteItemBtn
+            // 
+            deleteItemBtn.BackColor = Color.FromArgb(64, 64, 64);
+            deleteItemBtn.Cursor = Cursors.Hand;
+            deleteItemBtn.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            deleteItemBtn.FlatAppearance.BorderSize = 0;
+            deleteItemBtn.FlatStyle = FlatStyle.Flat;
+            deleteItemBtn.Font = new Font("Tahoma", 10F);
+            deleteItemBtn.ForeColor = SystemColors.Menu;
+            deleteItemBtn.Location = new Point(450, 362);
+            deleteItemBtn.Name = "deleteItemBtn";
+            deleteItemBtn.Size = new Size(115, 36);
+            deleteItemBtn.TabIndex = 15;
+            deleteItemBtn.Text = "Delete Item";
+            deleteItemBtn.UseVisualStyleBackColor = false;
+            deleteItemBtn.Click += deleteItemBtn_Click;
+            // 
             // InventoryControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(deleteItemBtn);
             Controls.Add(SearchBtn);
             Controls.Add(cmbSearchBy);
             Controls.Add(UpdateBtn);
@@ -135,5 +154,6 @@
         private Button UpdateBtn;
         private ComboBox cmbSearchBy;
         private Button SearchBtn;
+        private Button deleteItemBtn;
     }
 }

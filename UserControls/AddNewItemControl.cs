@@ -165,6 +165,8 @@ namespace MyFridgeApp.UserControls
                     await _itemService.UpdateAsync(_editingItem);
                     _historyService.RecordAction($"Updated item: {_editingItem.Name}", DateTime.Now);
 
+
+
                     MessageBox.Show("Item updated successfully.", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

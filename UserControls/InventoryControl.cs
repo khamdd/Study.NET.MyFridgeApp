@@ -134,11 +134,15 @@ namespace MyFridgeApp.UserControls
             {
                 UpdateBtn.Enabled = true;           // enable button
                 UpdateBtn.BackColor = Color.Black; // change color when enabled
+                deleteItemBtn.Enabled = true;
+                deleteItemBtn.BackColor = Color.DarkRed;
             }
             else
             {
                 UpdateBtn.Enabled = false;          // disable button
-                UpdateBtn.BackColor = Color.Gray;   // change color when disabled
+                UpdateBtn.BackColor = Color.LightGray;   // change color when disabled
+                deleteItemBtn.Enabled = false;
+                deleteItemBtn.BackColor = Color.LightGray;
             }
         }
 
@@ -164,6 +168,57 @@ namespace MyFridgeApp.UserControls
             // Navigate to UpdateItemControl
             var updateControl = new AddNewItemControl(item);
             RequestNavigate?.Invoke(updateControl);
+        }
+
+        private async void deleteItemBtn_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected
+            if (inventorydgv.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an item to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Confirm deletion
+            var result = MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return;
+
+            // Get selected item Id
+            int selectedItemId = (int)inventorydgv.SelectedRows[0].Cells["Id"].Value;
+
+            using var context = new Context();
+            var item = await context.Items.FindAsync(selectedItemId);
+
+            if (item == null)
+            {
+                MessageBox.Show("Item not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            context.Items.Remove(item);
+            await context.SaveChangesAsync();
+
+            // Remove from local list
+            inventoryItems.RemoveAll(i => i.Id == selectedItemId);
+
+            // Refresh DataGridView
+            var itemsWithCategoryName = inventoryItems.Select(i => new
+            {
+                i.Id,
+                i.Name,
+                Category = i.Category?.Name ?? "Unknown",
+                i.Quantity,
+                i.Unit,
+                ImportDate = i.ImportDate.ToString("yyyy-MM-dd"),
+                ExpiryDate = i.ExpiryDate.ToString("yyyy-MM-dd"),
+                i.Notes
+            }).ToList();
+
+            inventorydgv.DataSource = null;
+            inventorydgv.DataSource = itemsWithCategoryName;
+
+            MessageBox.Show("Item deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
