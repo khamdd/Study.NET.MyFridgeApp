@@ -48,10 +48,9 @@
             HeaderPanel.BackColor = SystemColors.Window;
             HeaderPanel.Controls.Add(AppNameLabel);
             HeaderPanel.Dock = DockStyle.Top;
-            HeaderPanel.Location = new Point(371, 0);
-            HeaderPanel.Margin = new Padding(6, 6, 6, 6);
+            HeaderPanel.Location = new Point(200, 0);
             HeaderPanel.Name = "HeaderPanel";
-            HeaderPanel.Size = new Size(1456, 112);
+            HeaderPanel.Size = new Size(784, 60);
             HeaderPanel.TabIndex = 0;
             // 
             // AppNameLabel
@@ -59,10 +58,9 @@
             AppNameLabel.AutoSize = true;
             AppNameLabel.Cursor = Cursors.Hand;
             AppNameLabel.Font = new Font("Tahoma", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AppNameLabel.Location = new Point(11, 17);
-            AppNameLabel.Margin = new Padding(6, 0, 6, 0);
+            AppNameLabel.Location = new Point(6, 9);
             AppNameLabel.Name = "AppNameLabel";
-            AppNameLabel.Size = new Size(392, 62);
+            AppNameLabel.Size = new Size(224, 35);
             AppNameLabel.TabIndex = 0;
             AppNameLabel.Text = "My Fridge App";
             // 
@@ -78,9 +76,8 @@
             sidebarPanel.Controls.Add(AddItemBtn);
             sidebarPanel.Dock = DockStyle.Left;
             sidebarPanel.Location = new Point(0, 0);
-            sidebarPanel.Margin = new Padding(6, 6, 6, 6);
             sidebarPanel.Name = "sidebarPanel";
-            sidebarPanel.Size = new Size(371, 1047);
+            sidebarPanel.Size = new Size(200, 561);
             sidebarPanel.TabIndex = 1;
             // 
             // logBtn
@@ -92,10 +89,9 @@
             logBtn.FlatStyle = FlatStyle.Flat;
             logBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             logBtn.ForeColor = SystemColors.Menu;
-            logBtn.Location = new Point(22, 745);
-            logBtn.Margin = new Padding(6, 6, 6, 6);
+            logBtn.Location = new Point(12, 399);
             logBtn.Name = "logBtn";
-            logBtn.Size = new Size(305, 67);
+            logBtn.Size = new Size(164, 36);
             logBtn.TabIndex = 7;
             logBtn.Text = "Log";
             logBtn.UseVisualStyleBackColor = false;
@@ -110,10 +106,9 @@
             shoppingBtn.FlatStyle = FlatStyle.Flat;
             shoppingBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             shoppingBtn.ForeColor = SystemColors.Menu;
-            shoppingBtn.Location = new Point(22, 638);
-            shoppingBtn.Margin = new Padding(6, 6, 6, 6);
+            shoppingBtn.Location = new Point(12, 342);
             shoppingBtn.Name = "shoppingBtn";
-            shoppingBtn.Size = new Size(305, 67);
+            shoppingBtn.Size = new Size(164, 36);
             shoppingBtn.TabIndex = 6;
             shoppingBtn.Text = "Shopping";
             shoppingBtn.UseVisualStyleBackColor = false;
@@ -128,13 +123,13 @@
             ExitBtn.FlatStyle = FlatStyle.Flat;
             ExitBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ExitBtn.ForeColor = SystemColors.Menu;
-            ExitBtn.Location = new Point(22, 846);
-            ExitBtn.Margin = new Padding(6, 6, 6, 6);
+            ExitBtn.Location = new Point(12, 453);
             ExitBtn.Name = "ExitBtn";
-            ExitBtn.Size = new Size(305, 67);
+            ExitBtn.Size = new Size(164, 36);
             ExitBtn.TabIndex = 5;
             ExitBtn.Text = "Exit";
             ExitBtn.UseVisualStyleBackColor = false;
+            ExitBtn.Click += ExitBtn_Click;
             // 
             // DashboardBtn
             // 
@@ -145,10 +140,9 @@
             DashboardBtn.FlatStyle = FlatStyle.Flat;
             DashboardBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DashboardBtn.ForeColor = SystemColors.Menu;
-            DashboardBtn.Location = new Point(22, 299);
-            DashboardBtn.Margin = new Padding(6, 6, 6, 6);
+            DashboardBtn.Location = new Point(12, 160);
             DashboardBtn.Name = "DashboardBtn";
-            DashboardBtn.Size = new Size(305, 67);
+            DashboardBtn.Size = new Size(164, 36);
             DashboardBtn.TabIndex = 4;
             DashboardBtn.Text = "Dashboard";
             DashboardBtn.UseVisualStyleBackColor = false;
@@ -163,10 +157,9 @@
             InventoryBtn.FlatStyle = FlatStyle.Flat;
             InventoryBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             InventoryBtn.ForeColor = SystemColors.Menu;
-            InventoryBtn.Location = new Point(22, 405);
-            InventoryBtn.Margin = new Padding(6, 6, 6, 6);
+            InventoryBtn.Location = new Point(12, 217);
             InventoryBtn.Name = "InventoryBtn";
-            InventoryBtn.Size = new Size(305, 67);
+            InventoryBtn.Size = new Size(164, 36);
             InventoryBtn.TabIndex = 3;
             InventoryBtn.Text = "Inventory";
             InventoryBtn.UseVisualStyleBackColor = false;
@@ -178,10 +171,9 @@
             MenuLabel.BackColor = Color.FromArgb(64, 64, 64);
             MenuLabel.Font = new Font("Tahoma", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             MenuLabel.ForeColor = SystemColors.Menu;
-            MenuLabel.Location = new Point(22, 187);
-            MenuLabel.Margin = new Padding(6, 0, 6, 0);
+            MenuLabel.Location = new Point(12, 100);
             MenuLabel.Name = "MenuLabel";
-            MenuLabel.Size = new Size(123, 45);
+            MenuLabel.Size = new Size(69, 25);
             MenuLabel.TabIndex = 1;
             MenuLabel.Text = "Menu";
             // 
@@ -194,10 +186,9 @@
             AddItemBtn.FlatStyle = FlatStyle.Flat;
             AddItemBtn.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             AddItemBtn.ForeColor = SystemColors.Menu;
-            AddItemBtn.Location = new Point(22, 515);
-            AddItemBtn.Margin = new Padding(6, 6, 6, 6);
+            AddItemBtn.Location = new Point(12, 276);
             AddItemBtn.Name = "AddItemBtn";
-            AddItemBtn.Size = new Size(305, 67);
+            AddItemBtn.Size = new Size(164, 36);
             AddItemBtn.TabIndex = 0;
             AddItemBtn.Text = "Add New Item";
             AddItemBtn.UseVisualStyleBackColor = false;
@@ -206,22 +197,20 @@
             // MainPanel
             // 
             MainPanel.Dock = DockStyle.Fill;
-            MainPanel.Location = new Point(371, 112);
-            MainPanel.Margin = new Padding(6, 6, 6, 6);
+            MainPanel.Location = new Point(200, 60);
             MainPanel.Name = "MainPanel";
-            MainPanel.Size = new Size(1456, 935);
+            MainPanel.Size = new Size(784, 501);
             MainPanel.TabIndex = 5;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 28F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(1827, 1047);
+            ClientSize = new Size(984, 561);
             Controls.Add(MainPanel);
             Controls.Add(HeaderPanel);
             Controls.Add(sidebarPanel);
-            Margin = new Padding(6, 6, 6, 6);
             Name = "MainForm";
             Text = "Form1";
             Load += Form1_Load;

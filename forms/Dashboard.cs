@@ -61,5 +61,10 @@ namespace MyFridgeApp
         {
             LoadScreen(new LogControl());
         }
+
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
