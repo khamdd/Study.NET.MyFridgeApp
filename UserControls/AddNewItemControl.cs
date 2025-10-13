@@ -15,6 +15,7 @@ namespace MyFridgeApp.UserControls
 
         private readonly CategoryService _categoryService;
         private readonly ItemService _itemService;
+        private readonly HistoryService _historyService;
 
         public AddNewItemControl()
         {
@@ -23,6 +24,7 @@ namespace MyFridgeApp.UserControls
             // Initialize services
             _categoryService = new CategoryService();
             _itemService = new ItemService();
+            _historyService = new HistoryService();
 
             // Configure ErrorProvider
             _errorProvider.ContainerControl = this;
@@ -122,6 +124,7 @@ namespace MyFridgeApp.UserControls
             {
                 // Use your actual service method name (CreateAsync or Add)
                 await _itemService.CreateAsync(item);
+                _historyService.RecordAction($"Added item: {item.Name}", DateTime.Now);
 
                 MessageBox.Show("Item saved successfully.", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

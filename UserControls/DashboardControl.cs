@@ -52,8 +52,8 @@ namespace MyFridgeApp.UserControls
 
         private void AboutExpiredPanel_Paint(object sender, PaintEventArgs e)
         {
-            int totalItems = 10; // Your List<FoodItem>
-
+            int daysThreshold = 5; // Define "about to expire" as within the next 5 days
+            int aboutExpireItemCount = items.Count(i => (i.ExpiryDate - DateTime.Now).TotalDays <= daysThreshold && i.Status == ItemStatus.Active && i.ExpiryDate >= DateTime.Now);
             // Draw circle
             using (Pen pen = new Pen(Color.Red, 5))
             {
@@ -61,7 +61,7 @@ namespace MyFridgeApp.UserControls
             }
 
             // Draw text in the center
-            string text = "About to expire \n" + totalItems.ToString();
+            string text = "About to expire \n" + aboutExpireItemCount.ToString();
             using (Font font = new Font("Arial", 16, FontStyle.Bold))
             using (Brush brush = new SolidBrush(Color.Black))
             {
@@ -74,7 +74,7 @@ namespace MyFridgeApp.UserControls
 
         private async void DashboardControl_Load_1(object sender, EventArgs e)
         {
-            var items = await itemService.GetAllAsync();
+            items = await itemService.GetAllAsync();
             totalItems = items.Count;
         }
 
