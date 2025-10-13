@@ -18,6 +18,7 @@ namespace MyFridgeApp.UserControls
     {
         private List<Item> inventoryItems = [];
         private readonly List<Item>? _providedItems = [];
+        public event Action<UserControl>? RequestNavigate;
         public InventoryControl()
         {
             InitializeComponent();
@@ -161,7 +162,8 @@ namespace MyFridgeApp.UserControls
             }
 
             // Navigate to UpdateItemControl
-            MessageBox.Show($"Navigating to update item: {item.Name}", "Update Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var updateControl = new AddNewItemControl(item);
+            RequestNavigate?.Invoke(updateControl);
         }
     }
 }

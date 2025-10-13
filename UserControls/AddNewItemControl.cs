@@ -16,6 +16,8 @@ namespace MyFridgeApp.UserControls
         private readonly CategoryService _categoryService;
         private readonly ItemService _itemService;
         private readonly HistoryService _historyService;
+        private readonly bool _isEditMode;
+        private readonly Item? _editingItem;
 
         public AddNewItemControl()
         {
@@ -28,6 +30,21 @@ namespace MyFridgeApp.UserControls
 
             // Configure ErrorProvider
             _errorProvider.ContainerControl = this;
+            _isEditMode = false;
+            _editingItem = null;
+        }
+
+        public AddNewItemControl(Item itemToEdit)
+        {
+            InitializeComponent();
+
+            _categoryService = new CategoryService();
+            _itemService = new ItemService();
+            _historyService = new HistoryService();
+            _errorProvider.ContainerControl = this;
+
+            _isEditMode = true;
+            _editingItem = itemToEdit;
         }
 
         /// <summary>
@@ -36,6 +53,19 @@ namespace MyFridgeApp.UserControls
         private async void AddNewItemControl_Load(object sender, EventArgs e)
         {
             await LoadCategoriesAsync();
+
+            // If in edit mode, populate fields with existing item data
+            if (_isEditMode && _editingItem != null)
+            {
+                txtName.Text = _editingItem.Name;
+                cmbCategory.SelectedValue = _editingItem.CategoryId;
+                dtpExpiry.Value = _editingItem.ExpiryDate;
+                numQuantity.Value = _editingItem.Quantity;
+                txtUnit.Text = _editingItem.Unit;
+                txtNotes.Text = _editingItem.Notes;
+
+                btnAdd.Text = "Update Item";  // change button text
+            }
         }
 
         /// <summary>
@@ -107,29 +137,68 @@ namespace MyFridgeApp.UserControls
            
             if (!ValidateInputs()) return;
 
-            var item = new Item
-            {
-                Name = txtName.Text.Trim(),
-                CategoryId = (int)cmbCategory.SelectedValue!,
-                ImportDate = DateTime.Today,              
-                ExpiryDate = dtpExpiry.Value.Date,
-                Quantity = (int)numQuantity.Value,
-                Unit = txtUnit.Text.Trim(),
-                Notes = txtNotes.Text.Trim(),
-                Status = ItemStatus.Active
-            };
+            //var item = new Item
+            //{
+            //    Name = txtName.Text.Trim(),
+            //    CategoryId = (int)cmbCategory.SelectedValue!,
+            //    ImportDate = DateTime.Today,              
+            //    ExpiryDate = dtpExpiry.Value.Date,
+            //    Quantity = (int)numQuantity.Value,
+            //    Unit = txtUnit.Text.Trim(),
+            //    Notes = txtNotes.Text.Trim(),
+            //    Status = ItemStatus.Active
+            //};
 
             // Try to save the item via ItemService
             try
             {
+                if (_isEditMode && _editingItem != null)
+                {
+                    // Update existing item
+                    _editingItem.Name = txtName.Text.Trim();
+                    _editingItem.CategoryId = (int)cmbCategory.SelectedValue!;
+                    _editingItem.ExpiryDate = dtpExpiry.Value.Date;
+                    _editingItem.Quantity = (int)numQuantity.Value;
+                    _editingItem.Unit = txtUnit.Text.Trim();
+                    _editingItem.Notes = txtNotes.Text.Trim();
+
+                    await _itemService.UpdateAsync(_editingItem);
+                    _historyService.RecordAction($"Updated item: {_editingItem.Name}", DateTime.Now);
+
+                    MessageBox.Show("Item updated successfully.", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Add new item
+                    var item = new Item
+                    {
+                        Name = txtName.Text.Trim(),
+                        CategoryId = (int)cmbCategory.SelectedValue!,
+                        ImportDate = DateTime.Today,
+                        ExpiryDate = dtpExpiry.Value.Date,
+                        Quantity = (int)numQuantity.Value,
+                        Unit = txtUnit.Text.Trim(),
+                        Notes = txtNotes.Text.Trim(),
+                        Status = ItemStatus.Active
+                    };
+
+                    await _itemService.CreateAsync(item);
+                    _historyService.RecordAction($"Added item: {item.Name}", DateTime.Now);
+
+                    MessageBox.Show("Item saved successfully.", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ResetForm();
+                }
                 // Use your actual service method name (CreateAsync or Add)
-                await _itemService.CreateAsync(item);
-                _historyService.RecordAction($"Added item: {item.Name}", DateTime.Now);
+                //await _itemService.CreateAsync(item);
+                //_historyService.RecordAction($"Added item: {item.Name}", DateTime.Now);
 
-                MessageBox.Show("Item saved successfully.", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Item saved successfully.", "Success",
+                //    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                ResetForm(); // Clear the form after successful save
+                //ResetForm(); // Clear the form after successful save
             }
             catch (Exception ex)
             {

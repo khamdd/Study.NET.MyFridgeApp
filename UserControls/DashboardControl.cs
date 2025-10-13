@@ -19,6 +19,8 @@ namespace MyFridgeApp.UserControls
         private int totalItems;
         private readonly ItemService itemService;
         public event Action<UserControl>? RequestNavigate;
+        private int daysThreshold = 5; // Define "about to expire" as within the next 5 days
+        private int aboutExpireItemCount = 0;
         public DashboardControl()
         {
             InitializeComponent();
@@ -52,8 +54,6 @@ namespace MyFridgeApp.UserControls
 
         private void AboutExpiredPanel_Paint(object sender, PaintEventArgs e)
         {
-            int daysThreshold = 5; // Define "about to expire" as within the next 5 days
-            int aboutExpireItemCount = items.Count(i => (i.ExpiryDate - DateTime.Now).TotalDays <= daysThreshold && i.Status == ItemStatus.Active && i.ExpiryDate >= DateTime.Now);
             // Draw circle
             using (Pen pen = new Pen(Color.Red, 5))
             {
@@ -76,6 +76,7 @@ namespace MyFridgeApp.UserControls
         {
             items = await itemService.GetAllAsync();
             totalItems = items.Count;
+            aboutExpireItemCount = items.Count(i => (i.ExpiryDate - DateTime.Now).TotalDays <= daysThreshold && i.Status == ItemStatus.Active && i.ExpiryDate >= DateTime.Now);
         }
 
         private void GoToInventoryBtn_Click(object sender, EventArgs e)

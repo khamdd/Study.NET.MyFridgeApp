@@ -32,6 +32,9 @@ namespace MyFridgeApp
 
             if (control is DashboardControl dc)
                 dc.RequestNavigate += LoadScreen;
+
+            if (control is InventoryControl ic)
+                ic.RequestNavigate += LoadScreen;
         }
 
         private void InventoryBtn_Click(object sender, EventArgs e)

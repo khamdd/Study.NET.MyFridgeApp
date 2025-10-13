@@ -14,7 +14,7 @@ namespace MyFridgeApp.Services
     /// History operations for Items (soft-deleted) and Carts (Ordered/Cleared).
     /// Keep it minimal and UI-friendly.
     /// </summary>
-    internal class HistoryService : IHistory
+    public class HistoryService : IHistory
     {
         public HistoryService()
         {
@@ -30,6 +30,7 @@ namespace MyFridgeApp.Services
             };
 
             context.FridgeLogs.Add(log);
+            context.SaveChanges();
         }
 
         public List<FridgeLog> GetHistory()
