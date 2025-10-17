@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("MyFridgeApp.Tests")]
+
 namespace MyFridgeApp
 {
     internal static class Program
