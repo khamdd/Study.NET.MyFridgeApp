@@ -186,63 +186,63 @@ namespace MyFridgeApp.Services
         /// Get all carts that have been placed (status = Ordered).
         /// Ordered by CreatedAt descending.
         /// </summary>
-        public async Task<List<Cart>> GetOrderedCartsAsync()
-        {
-            using var context = new Context();
+        //public async Task<List<Cart>> GetOrderedCartsAsync()
+        //{
+        //    using var context = new Context();
 
-            return await context.Carts
-                .Where(c => c.Status == CartStatus.Ordered)
-                .AsNoTracking()
-                .OrderByDescending(c => c.PlacedAt)
-                .ToListAsync();
-        }
+        //    return await context.Carts
+        //        .Where(c => c.Status == CartStatus.Ordered)
+        //        .AsNoTracking()
+        //        .OrderByDescending(c => c.PlacedAt)
+        //        .ToListAsync();
+        //}
 
         /// <summary>
         /// Get all items for a specific ordered cart.
         /// </summary>
-        public async Task<List<CartItem>> GetCartItemsByCartIdAsync(int cartId)
-        {
-            using var context = new Context();
+        //public async Task<List<CartItem>> GetCartItemsByCartIdAsync(int cartId)
+        //{
+        //    using var context = new Context();
 
-            return await context.CartItems
-                .Where(i => i.CartId == cartId)
-                .Include(i => i.Category)
-                .AsNoTracking()
-                .OrderBy(i => i.Name)
-                .ToListAsync();
-        }
+        //    return await context.CartItems
+        //        .Where(i => i.CartId == cartId)
+        //        .Include(i => i.Category)
+        //        .AsNoTracking()
+        //        .OrderBy(i => i.Name)
+        //        .ToListAsync();
+        //}
 
         /// <summary>
         /// Delete a specific ordered cart and all its items from the database.
         /// </summary>
-        public async Task DeleteOrderedCartAsync(int cartId)
-        {
-            using var context = new Context();
+        //public async Task DeleteOrderedCartAsync(int cartId)
+        //{
+        //    using var context = new Context();
 
-            var cart = await context.Carts
-                .FirstOrDefaultAsync(c => c.Id == cartId && c.Status == CartStatus.Ordered);
+        //    var cart = await context.Carts
+        //        .FirstOrDefaultAsync(c => c.Id == cartId && c.Status == CartStatus.Ordered);
 
-            if (cart == null) return;
+        //    if (cart == null) return;
 
-            context.Carts.Remove(cart);
-            await context.SaveChangesAsync();
-        }
+        //    context.Carts.Remove(cart);
+        //    await context.SaveChangesAsync();
+        //}
 
         /// <summary>
         /// Delete all ordered carts (clear all history).
         /// </summary>
-        public async Task ClearAllOrderedCartsAsync()
-        {
-            using var context = new Context();
+        //public async Task ClearAllOrderedCartsAsync()
+        //{
+        //    using var context = new Context();
 
-            var ordered = await context.Carts
-                .Where(c => c.Status == CartStatus.Ordered)
-                .ToListAsync();
+        //    var ordered = await context.Carts
+        //        .Where(c => c.Status == CartStatus.Ordered)
+        //        .ToListAsync();
 
-            if (ordered.Count == 0) return;
+        //    if (ordered.Count == 0) return;
 
-            context.Carts.RemoveRange(ordered);
-            await context.SaveChangesAsync();
-        }
+        //    context.Carts.RemoveRange(ordered);
+        //    await context.SaveChangesAsync();
+        //}
     }
 }

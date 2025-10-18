@@ -29,9 +29,9 @@ namespace MyFridgeApp.Interfaces
         Task PlaceOrderAsync();
 
         // cart history
-        Task<List<Cart>> GetOrderedCartsAsync();
-        Task<List<CartItem>> GetCartItemsByCartIdAsync(int cartId);
-        Task DeleteOrderedCartAsync(int cartId);
-        Task ClearAllOrderedCartsAsync();
+        //Task<List<Cart>> GetOrderedCartsAsync();
+        //Task<List<CartItem>> GetCartItemsByCartIdAsync(int cartId);
+        //Task DeleteOrderedCartAsync(int cartId);
+        //Task ClearAllOrderedCartsAsync();
     }
 }
