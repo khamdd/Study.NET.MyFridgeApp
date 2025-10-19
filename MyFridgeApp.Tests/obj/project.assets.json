@@ -3765,23 +3765,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pc\\.nuget\\packages\\": {},
-    "D:\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\dangd\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pc\\Desktop\\FridgeApp\\MyFridgeApp.Tests\\MyFridgeApp.Tests.csproj",
+      "projectUniqueName": "D:\\UTS\\Semester3 - Spring 2025\\.NET Application Development\\assignment2\\MyFridgeApp\\MyFridgeApp.Tests\\MyFridgeApp.Tests.csproj",
       "projectName": "MyFridgeApp.Tests",
-      "projectPath": "C:\\Users\\pc\\Desktop\\FridgeApp\\MyFridgeApp.Tests\\MyFridgeApp.Tests.csproj",
-      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pc\\Desktop\\FridgeApp\\MyFridgeApp.Tests\\obj\\",
+      "projectPath": "D:\\UTS\\Semester3 - Spring 2025\\.NET Application Development\\assignment2\\MyFridgeApp\\MyFridgeApp.Tests\\MyFridgeApp.Tests.csproj",
+      "packagesPath": "C:\\Users\\dangd\\.nuget\\packages\\",
+      "outputPath": "D:\\UTS\\Semester3 - Spring 2025\\.NET Application Development\\assignment2\\MyFridgeApp\\MyFridgeApp.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dangd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3790,15 +3790,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\pc\\Desktop\\FridgeApp\\MyFridgeApp\\MyFridgeApp.csproj": {
-              "projectPath": "C:\\Users\\pc\\Desktop\\FridgeApp\\MyFridgeApp\\MyFridgeApp.csproj"
+            "D:\\UTS\\Semester3 - Spring 2025\\.NET Application Development\\assignment2\\MyFridgeApp\\MyFridgeApp\\MyFridgeApp.csproj": {
+              "projectPath": "D:\\UTS\\Semester3 - Spring 2025\\.NET Application Development\\assignment2\\MyFridgeApp\\MyFridgeApp\\MyFridgeApp.csproj"
             }
           }
         }
@@ -3856,7 +3855,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

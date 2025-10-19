@@ -1,0 +1,15 @@
+[
+  { "Id": 1, "Name": "Fruits", "Description": "Fresh fruits like apples, bananas, berries, and citrus." },
+  { "Id": 2, "Name": "Vegetables", "Description": "Fresh vegetables including leafy greens, root vegetables, and others." },
+  { "Id": 3, "Name": "Dairy", "Description": "Milk, cheese, yogurt, butter, and other dairy products." },
+  { "Id": 4, "Name": "Meat & Poultry", "Description": "Fresh or frozen meats and poultry products." },
+  { "Id": 5, "Name": "Seafood", "Description": "Fresh or frozen fish, shrimp, and other seafood items." },
+  { "Id": 6, "Name": "Beverages", "Description": "Juices, soft drinks, water, and other drinks." },
+  { "Id": 7, "Name": "Condiments & Sauces", "Description": "Ketchup, mustard, mayonnaise, sauces, and dressings." },
+  { "Id": 8, "Name": "Snacks", "Description": "Chips, nuts, chocolate, and other packaged snacks." },
+  { "Id": 9, "Name": "Frozen Foods", "Description": "Frozen meals, vegetables, ice cream, and other frozen items." },
+  { "Id": 10, "Name": "Leftovers", "Description": "Cooked meals and leftover food stored in the fridge." },
+  { "Id": 11, "Name": "Herbs & Spices", "Description": "Fresh herbs, dried spices, and seasoning mixes." },
+  { "Id": 12, "Name": "Bakery", "Description": "Bread, buns, pastries, and other baked goods." },
+  { "Id": 13, "Name": "Eggs", "Description": "Eggs stored in the fridge." }
+]

@@ -1,0 +1,10 @@
+﻿INSERT INTO Categories (Name, Description) VALUES ('Dairy', 'Milk, cheese, butter, yogurt, and other dairy products');
+INSERT INTO Categories (Name, Description) VALUES ('Meat', 'Fresh or cooked beef, pork, lamb, and related products');
+INSERT INTO Categories (Name, Description) VALUES ('Poultry', 'Chicken, turkey, duck, and other bird meats');
+INSERT INTO Categories (Name, Description) VALUES ('Seafood', 'Fish, shrimp, crab, and other seafood items');
+INSERT INTO Categories (Name, Description) VALUES ('Vegetables', 'Fresh, frozen, or cooked vegetables');
+INSERT INTO Categories (Name, Description) VALUES ('Fruits', 'Fresh, frozen, or cut fruits');
+INSERT INTO Categories (Name, Description) VALUES ('Beverages', 'Juices, soft drinks, bottled water, and cold drinks');
+INSERT INTO Categories (Name, Description) VALUES ('Condiments', 'Sauces, dressings, ketchup, mustard, mayonnaise, etc.');
+INSERT INTO Categories (Name, Description) VALUES ('Leftovers', 'Cooked food stored for later consumption');
+INSERT INTO Categories (Name, Description) VALUES ('Frozen Foods', 'Packaged frozen meals, ice cream, frozen snacks');

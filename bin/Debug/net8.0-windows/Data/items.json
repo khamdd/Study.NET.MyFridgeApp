@@ -1,0 +1,162 @@
+[
+  {
+    "Id": 1,
+    "Name": "Apple",
+    "CategoryId": 1,
+    "ImportDate": "2025-09-26T10:00:00",
+    "ExpiryDate": "2025-10-02T00:00:00",
+    "Quantity": 6,
+    "Unit": "pcs",
+    "Notes": "Red apples"
+  },
+  {
+    "Id": 2,
+    "Name": "Banana",
+    "CategoryId": 1,
+    "ImportDate": "2025-09-25T11:00:00",
+    "ExpiryDate": "2025-10-01T00:00:00",
+    "Quantity": 8,
+    "Unit": "pcs",
+    "Notes": ""
+  },
+  {
+    "Id": 3,
+    "Name": "Spinach",
+    "CategoryId": 2,
+    "ImportDate": "2025-09-25T15:00:00",
+    "ExpiryDate": "2025-09-30T00:00:00",
+    "Quantity": 1,
+    "Unit": "bunch",
+    "Notes": "Fresh and washed"
+  },
+  {
+    "Id": 4,
+    "Name": "Carrot",
+    "CategoryId": 2,
+    "ImportDate": "2025-09-24T10:00:00",
+    "ExpiryDate": "2025-10-01T00:00:00",
+    "Quantity": 5,
+    "Unit": "pcs",
+    "Notes": ""
+  },
+  {
+    "Id": 5,
+    "Name": "Milk",
+    "CategoryId": 3,
+    "ImportDate": "2025-09-24T12:00:00",
+    "ExpiryDate": "2025-09-29T00:00:00",
+    "Quantity": 2,
+    "Unit": "liters",
+    "Notes": "Full cream"
+  },
+  {
+    "Id": 6,
+    "Name": "Yogurt",
+    "CategoryId": 3,
+    "ImportDate": "2025-09-23T09:00:00",
+    "ExpiryDate": "2025-09-30T00:00:00",
+    "Quantity": 4,
+    "Unit": "cups",
+    "Notes": "Plain"
+  },
+  {
+    "Id": 7,
+    "Name": "Chicken Breast",
+    "CategoryId": 4,
+    "ImportDate": "2025-09-25T18:00:00",
+    "ExpiryDate": "2025-09-28T00:00:00",
+    "Quantity": 1,
+    "Unit": "kg",
+    "Notes": "Boneless"
+  },
+  {
+    "Id": 8,
+    "Name": "Salmon Fillet",
+    "CategoryId": 5,
+    "ImportDate": "2025-09-25T16:00:00",
+    "ExpiryDate": "2025-09-28T00:00:00",
+    "Quantity": 2,
+    "Unit": "kg",
+    "Notes": "Fresh, skin-on"
+  },
+  {
+    "Id": 9,
+    "Name": "Orange Juice",
+    "CategoryId": 6,
+    "ImportDate": "2025-09-23T09:00:00",
+    "ExpiryDate": "2025-10-05T00:00:00",
+    "Quantity": 1,
+    "Unit": "liter",
+    "Notes": "No sugar added"
+  },
+  {
+    "Id": 10,
+    "Name": "Ketchup",
+    "CategoryId": 7,
+    "ImportDate": "2025-09-20T10:00:00",
+    "ExpiryDate": "2026-03-20T00:00:00",
+    "Quantity": 1,
+    "Unit": "bottle",
+    "Notes": ""
+  },
+  {
+    "Id": 11,
+    "Name": "Chocolate Bar",
+    "CategoryId": 8,
+    "ImportDate": "2025-09-15T12:00:00",
+    "ExpiryDate": "2026-01-15T00:00:00",
+    "Quantity": 3,
+    "Unit": "pcs",
+    "Notes": "Dark chocolate"
+  },
+  {
+    "Id": 12,
+    "Name": "Frozen Peas",
+    "CategoryId": 9,
+    "ImportDate": "2025-09-20T14:00:00",
+    "ExpiryDate": "2026-03-20T00:00:00",
+    "Quantity": 1,
+    "Unit": "kg",
+    "Notes": ""
+  },
+  {
+    "Id": 13,
+    "Name": "Leftover Pasta",
+    "CategoryId": 10,
+    "ImportDate": "2025-09-25T20:00:00",
+    "ExpiryDate": "2025-09-27T00:00:00",
+    "Quantity": 2,
+    "Unit": "plates",
+    "Notes": "Stored in container"
+  },
+  {
+    "Id": 14,
+    "Name": "Basil",
+    "CategoryId": 11,
+    "ImportDate": "2025-09-25T13:00:00",
+    "ExpiryDate": "2025-09-29T00:00:00",
+    "Quantity": 1,
+    "Unit": "bunch",
+    "Notes": "Fresh leaves"
+  },
+  {
+    "Id": 15,
+    "Name": "Bread",
+    "CategoryId": 12,
+    "ImportDate": "2025-09-24T08:00:00",
+    "ExpiryDate": "2025-09-28T00:00:00",
+    "Quantity": 1,
+    "Unit": "loaf",
+    "Notes": "Whole grain"
+  },
+  {
+    "Id": 16,
+    "Name": "Eggs",
+    "CategoryId": 13,
+    "ImportDate": "2025-09-22T10:00:00",
+    "ExpiryDate": "2025-10-05T00:00:00",
+    "Quantity": 12,
+    "Unit": "pcs",
+    "Notes": "Free-range"
+  }
+]
